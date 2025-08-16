@@ -1,0 +1,51 @@
+{
+  "name": "Daak Khana - Courier Marketplace",
+  "description": "Pakistan's First Professional Courier Marketplace",
+  "keywords": ["laravel", "php", "courier", "marketplace", "pakistan"],
+  "website": "https://daakkhana.herokuapp.com/",
+  "repository": "https://github.com/your-username/courier-marketplace",
+  "logo": "https://your-app.herokuapp.com/mylogo.png",
+  "success_url": "/",
+  "scripts": {
+    "postdeploy": "php artisan migrate --force && php artisan db:seed --force"
+  },
+  "env": {
+    "APP_KEY": {
+      "description": "Laravel application key",
+      "generator": "secret"
+    },
+    "APP_ENV": {
+      "description": "Application environment",
+      "value": "production"
+    },
+    "APP_DEBUG": {
+      "description": "Debug mode",
+      "value": "false"
+    },
+    "LOG_CHANNEL": {
+      "description": "Log channel",
+      "value": "errorlog"
+    },
+    "DB_CONNECTION": {
+      "description": "Database connection",
+      "value": "mysql"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "addons": [
+    "jawsdb:kitefin"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/php"
+    }
+  ]
+}

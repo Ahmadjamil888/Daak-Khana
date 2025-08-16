@@ -34,6 +34,10 @@
         }
     },
     "scripts": {
+        "post-install-cmd": [
+            "php artisan clear-compiled --ansi",
+            "php artisan optimize --ansi"
+        ],
         "post-autoload-dump": [
             "@php artisan config:clear",
             "@php artisan clear-compiled",
