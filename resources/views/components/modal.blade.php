@@ -13,7 +13,9 @@ $maxWidth = [
     '2xl' => 'sm:max-w-2xl',
 ][$maxWidth];
 @endphp
-
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
 <div
     x-data="{
         show: @js($show),

@@ -12,7 +12,9 @@ $width = match ($width) {
     default => $width,
 };
 @endphp
-
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
 <div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
     <div @click="open = ! open">
         {{ $trigger }}

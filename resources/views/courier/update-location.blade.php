@@ -1,4 +1,7 @@
 <x-app-layout>
+    <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
     <x-slot name="header">
         <div class="flex justify-between items-center">
             <h2 class="font-title text-xl font-semibold text-neutral-800 leading-tight">

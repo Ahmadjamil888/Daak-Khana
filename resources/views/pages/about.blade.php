@@ -1,4 +1,7 @@
 <x-app-layout>
+    <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
     <div class="min-h-screen bg-white">
         <!-- Hero Section -->
         <section class="pt-24 pb-16 gradient-bg hero-pattern relative overflow-hidden">
