@@ -9,6 +9,7 @@
     <meta name="author" content="Daak Khana">
     
     <!-- Open Graph -->
+     <script src="https://cdn.tailwindcss.com"></script>
     <meta property="og:title" content="Daak Khana - Pakistan's First Professional Courier Marketplace">
     <meta property="og:description" content="Connect with verified courier companies for reliable delivery solutions across Pakistan.">
     <meta property="og:image" content="{{ asset('favicon.svg') }}">
