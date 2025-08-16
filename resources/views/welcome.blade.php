@@ -10,6 +10,7 @@
     
     <!-- Open Graph -->
      <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <meta property="og:title" content="Daak Khana - Pakistan's First Professional Courier Marketplace">
     <meta property="og:description" content="Connect with verified courier companies for reliable delivery solutions across Pakistan.">
     <meta property="og:image" content="{{ asset('favicon.svg') }}">
@@ -79,21 +80,20 @@
 </head><body class
 ="font-sans antialiased bg-white">
     <!-- Navigation -->
-    <nav class="bg-white/95 backdrop-blur-md border-b border-green-100 fixed w-full top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex justify-between h-20">
+    <nav class="bg-white/95 backdrop-blur-md border-b border-green-100 fixed w-full top-0 z-50 shadow-sm" x-data="{ mobileMenuOpen: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0">
-                        <div class="flex items-center">
-                            <img src="{{ asset('mylogo.png') }}" alt="Daak Khana Logo" class="w-12 h-12 rounded-xl shadow-md">
-                            <div class="ml-3">
-                                <span class="text-2xl font-bold text-gray-900">Daak Khana</span>
-                                <div class="text-xs text-green-600 font-semibold">Pakistan's #1 Courier Platform</div>
-                            </div>
+                    <div class="flex-shrink-0 flex items-center">
+                        <img src="{{ asset('mylogo.png') }}" alt="Daak Khana Logo" class="w-10 h-10 rounded-xl shadow-md">
+                        <div class="ml-3 hidden sm:block">
+                            <span class="text-xl font-bold text-gray-900">Daak Khana</span>
+                            <div class="text-xs text-green-600 font-semibold">Pakistan's #1 Courier Platform</div>
                         </div>
                     </div>
                     
-                    <div class="hidden lg:ml-12 lg:flex lg:space-x-8">
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:ml-12 md:flex md:space-x-8">
                         <a href="#services" class="text-gray-600 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-green-50">Services</a>
                         <a href="#how-it-works" class="text-gray-600 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-green-50">How It Works</a>
                         <a href="#features" class="text-gray-600 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-green-50">Features</a>
@@ -103,11 +103,47 @@
                     </div>
                 </div>
                 
-                <div class="flex items-center space-x-4">
+                <!-- Desktop Auth Buttons -->
+                <div class="hidden md:flex md:items-center md:space-x-4">
                     <a href="/login" class="text-gray-600 hover:text-green-600 px-4 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-green-50">Login</a>
                     <a href="/register" class="gradient-bg text-white px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                         Get Started
                     </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg x-show="!mobileMenuOpen" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg x-show="mobileMenuOpen" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div x-show="mobileMenuOpen" class="md:hidden" id="mobile-menu">
+                <div class="pt-2 pb-3 space-y-1">
+                    <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Services</a>
+                    <a href="#how-it-works" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">How It Works</a>
+                    <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Features</a>
+                    <a href="#companies" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Companies</a>
+                    <a href="#pricing" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Pricing</a>
+                    <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Contact</a>
+                </div>
+                <div class="pt-4 pb-3 border-t border-gray-200">
+                    <div class="flex items-center px-5">
+                        <div class="flex items-center">
+                            <a href="/login" class="w-full text-center bg-white border border-green-300 text-green-600 px-4 py-2 rounded-lg text-base font-medium hover:bg-green-50">Login</a>
+                        </div>
+                        <div class="mt-3 sm:mt-0 sm:ml-3 flex items-center">
+                            <a href="/register" class="w-full text-center gradient-bg text-white px-4 py-2 rounded-lg text-base font-medium hover:opacity-90">Get Started</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

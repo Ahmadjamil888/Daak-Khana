@@ -3,9 +3,6 @@
         <h2 class="text-2xl font-bold text-neutral-900 mb-2">اپنے اکاؤنٹ میں لاگ ان کریں</h2>
         <p class="text-neutral-600">اپنی کوریئر سروسز کا انتظام کریں</p>
     </div>
-    <head>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 

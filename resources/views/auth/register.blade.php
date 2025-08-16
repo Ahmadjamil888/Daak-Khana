@@ -3,9 +3,6 @@
         <h2 class="text-2xl font-bold text-neutral-900 mb-2">نیا اکاؤنٹ بنائیں</h2>
         <p class="text-neutral-600">ڈاک خانہ میں خوش آمدید</p>
     </div>
-   <head>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
     <form method="POST" action="{{ route('register') }}" class="space-y-6">
         @csrf
 
