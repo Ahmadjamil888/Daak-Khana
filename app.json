@@ -7,7 +7,7 @@
   "logo": "https://your-app.herokuapp.com/mylogo.png",
   "success_url": "/",
   "scripts": {
-    "postdeploy": "php artisan migrate --force && php artisan db:seed --force"
+    "postdeploy": "php artisan migrate --force && php artisan config:cache && php artisan route:cache && php artisan view:cache"
   },
   "env": {
     "APP_KEY": {
