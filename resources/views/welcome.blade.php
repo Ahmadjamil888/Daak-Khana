@@ -192,7 +192,6 @@
                 <div class="relative rounded-3xl overflow-hidden shadow-2xl">
                     <!-- Replace with web illustration -->
                     <img src="https://cdni.iconscout.com/illustration/premium/thumb/delivery-service-illustration-download-in-svg-png-gif-file-formats--tracking-man-deliver-transport-logistic-pack-people-illustrations-3185072.png" 
-                         alt="Courier Service Web Illustration" 
                          class="w-full h-96 object-contain bg-white">
                     
                     <!-- Greyish Tint Overlay -->
