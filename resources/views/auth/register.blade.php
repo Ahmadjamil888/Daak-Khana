@@ -1,123 +1,118 @@
-<x-guest-layout>
-    <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-green-50 to-white px-4">
-        <div class="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
-            
-            <!-- Heading -->
-            <div class="text-center mb-8">
-                <h2 class="text-2xl md:text-3xl font-bold text-green-700 mb-2">نیا اکاؤنٹ بنائیں</h2>
-                <p class="text-neutral-600">ڈاک خانہ میں خوش آمدید</p>
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-white via-green-50/30 to-white min-h-screen flex items-center justify-center">
+
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
+        <!-- Heading -->
+        <div class="text-center mb-8">
+            <h2 class="text-2xl font-bold text-green-700 mb-2">نیا اکاؤنٹ بنائیں</h2>
+            <p class="text-gray-600">ڈاک خانہ میں خوش آمدید</p>
+        </div>
+
+        <!-- Register Form -->
+        <form method="POST" action="{{ route('register') }}" class="space-y-6">
+            @csrf
+
+            <!-- User Type -->
+            <div>
+                <label class="block text-sm font-medium text-green-700 mb-3">اکاؤنٹ کی قسم</label>
+                <div class="space-y-3">
+                    <!-- Customer -->
+                    <label class="flex items-center p-4 border-2 rounded-xl cursor-pointer transition hover:bg-green-50">
+                        <input type="radio" name="user_type" value="customer"
+                               class="text-green-600 focus:ring-green-500"
+                               {{ old('user_type') === 'customer' ? 'checked' : '' }} required>
+                        <span class="mr-3 text-gray-700">مجھے ڈیلیوری چاہیے</span>
+                    </label>
+
+                    <!-- Courier -->
+                    <label class="flex items-center p-4 border-2 rounded-xl cursor-pointer transition hover:bg-green-50">
+                        <input type="radio" name="user_type" value="courier"
+                               class="text-green-600 focus:ring-green-500"
+                               {{ old('user_type') === 'courier' ? 'checked' : '' }} required>
+                        <span class="mr-3 text-gray-700">میں ڈیلیوری فراہم کرتا ہوں</span>
+                    </label>
+                </div>
+                @error('user_type')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
             </div>
 
-            <!-- Form -->
-            <form method="POST" action="{{ route('register') }}" class="space-y-6">
-                @csrf
+            <!-- Name -->
+            <div>
+                <label for="name" class="block text-sm font-medium text-green-700 mb-2">مکمل نام</label>
+                <input id="name" type="text" name="name" value="{{ old('name') }}" required
+                       class="w-full px-4 py-2 border rounded-xl shadow-sm focus:ring-2 focus:ring-green-400 border-gray-300"
+                       placeholder="اپنا نام درج کریں">
+                @error('name')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
 
-                <!-- User Type -->
-                <div>
-                    <label class="block text-sm font-medium text-green-700 mb-3">اکاؤنٹ کی قسم</label>
-                    <div class="grid grid-cols-1 gap-3">
-                        <!-- Customer -->
-                        <label class="flex items-center p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 
-                            hover:bg-green-50 hover:border-green-300 {{ request('type') === 'customer' ? 'border-green-500 bg-green-50' : 'border-green-200' }}">
-                            <input type="radio" name="user_type" value="customer"
-                                   class="text-green-600 focus:ring-green-500"
-                                   {{ request('type') === 'customer' || old('user_type') === 'customer' ? 'checked' : '' }} required>
-                            <div class="ml-4 flex items-center">
-                                <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center mr-3">
-                                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <div class="text-sm font-semibold text-neutral-900">مجھے ڈیلیوری چاہیے</div>
-                                    <div class="text-xs text-neutral-500">کوریئر سروس بک کریں</div>
-                                </div>
-                            </div>
-                        </label>
+            <!-- Email -->
+            <div>
+                <label for="email" class="block text-sm font-medium text-green-700 mb-2">ای میل ایڈریس</label>
+                <input id="email" type="email" name="email" value="{{ old('email') }}" required
+                       class="w-full px-4 py-2 border rounded-xl shadow-sm focus:ring-2 focus:ring-green-400 border-gray-300"
+                       placeholder="ای میل درج کریں">
+                @error('email')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
 
-                        <!-- Courier -->
-                        <label class="flex items-center p-4 border-2 rounded-xl cursor-pointer transition-all duration-200 
-                            hover:bg-green-50 hover:border-green-300 {{ request('type') === 'courier' ? 'border-green-500 bg-green-50' : 'border-green-200' }}">
-                            <input type="radio" name="user_type" value="courier"
-                                   class="text-green-600 focus:ring-green-500"
-                                   {{ request('type') === 'courier' || old('user_type') === 'courier' ? 'checked' : '' }} required>
-                            <div class="ml-4 flex items-center">
-                                <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center mr-3">
-                                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <div class="text-sm font-semibold text-neutral-900">میں ڈیلیوری فراہم کرتا ہوں</div>
-                                    <div class="text-xs text-neutral-500">کوریئر کمپنی کے طور پر شامل ہوں</div>
-                                </div>
-                            </div>
-                        </label>
-                    </div>
-                    <x-input-error :messages="$errors->get('user_type')" class="mt-2" />
-                </div>
+            <!-- Phone -->
+            <div>
+                <label for="phone" class="block text-sm font-medium text-green-700 mb-2">فون نمبر</label>
+                <input id="phone" type="tel" name="phone" value="{{ old('phone') }}" required
+                       class="w-full px-4 py-2 border rounded-xl shadow-sm focus:ring-2 focus:ring-green-400 border-gray-300"
+                       placeholder="03XX-XXXXXXX">
+                @error('phone')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
 
-                <!-- Name -->
-                <div>
-                    <label for="name" class="block text-sm font-medium text-green-700 mb-2">مکمل نام</label>
-                    <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus autocomplete="name"
-                           class="w-full px-4 py-3 border border-green-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-400 transition-all duration-200"
-                           placeholder="اپنا نام درج کریں">
-                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
-                </div>
+            <!-- Password -->
+            <div>
+                <label for="password" class="block text-sm font-medium text-green-700 mb-2">پاس ورڈ</label>
+                <input id="password" type="password" name="password" required autocomplete="new-password"
+                       class="w-full px-4 py-2 border rounded-xl shadow-sm focus:ring-2 focus:ring-green-400 border-gray-300"
+                       placeholder="کم از کم 8 حروف کا پاس ورڈ">
+                @error('password')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
 
-                <!-- Email Address -->
-                <div>
-                    <label for="email" class="block text-sm font-medium text-green-700 mb-2">ای میل ایڈریس</label>
-                    <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="username"
-                           class="w-full px-4 py-3 border border-green-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-400 transition-all duration-200"
-                           placeholder="ای میل درج کریں">
-                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                </div>
+            <!-- Confirm Password -->
+            <div>
+                <label for="password_confirmation" class="block text-sm font-medium text-green-700 mb-2">پاس ورڈ کی تصدیق</label>
+                <input id="password_confirmation" type="password" name="password_confirmation" required
+                       class="w-full px-4 py-2 border rounded-xl shadow-sm focus:ring-2 focus:ring-green-400 border-gray-300"
+                       placeholder="پاس ورڈ دوبارہ درج کریں">
+                @error('password_confirmation')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
 
-                <!-- Phone -->
-                <div>
-                    <label for="phone" class="block text-sm font-medium text-green-700 mb-2">فون نمبر</label>
-                    <input id="phone" type="tel" name="phone" value="{{ old('phone') }}" required
-                           class="w-full px-4 py-3 border border-green-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-400 transition-all duration-200"
-                           placeholder="03XX-XXXXXXX">
-                    <x-input-error :messages="$errors->get('phone')" class="mt-2" />
-                </div>
+            <!-- Submit -->
+            <button type="submit"
+                class="w-full py-2 px-4 bg-green-600 text-white rounded-xl hover:bg-green-700 transition shadow-md">
+                اکاؤنٹ بنائیں
+            </button>
+        </form>
 
-                <!-- Password -->
-                <div>
-                    <label for="password" class="block text-sm font-medium text-green-700 mb-2">پاس ورڈ</label>
-                    <input id="password" type="password" name="password" required autocomplete="new-password"
-                           class="w-full px-4 py-3 border border-green-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-400 transition-all duration-200"
-                           placeholder="کم از کم 8 حروف کا پاس ورڈ">
-                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                </div>
-
-                <!-- Confirm Password -->
-                <div>
-                    <label for="password_confirmation" class="block text-sm font-medium text-green-700 mb-2">پاس ورڈ کی تصدیق</label>
-                    <input id="password_confirmation" type="password" name="password_confirmation" required autocomplete="new-password"
-                           class="w-full px-4 py-3 border border-green-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-400 transition-all duration-200"
-                           placeholder="پاس ورڈ دوبارہ درج کریں">
-                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-                </div>
-
-                <!-- Submit -->
-                <button type="submit"
-                    class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white py-3 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-xl transform hover:scale-[1.02]">
-                    اکاؤنٹ بنائیں
-                </button>
-
-                <!-- Login Link -->
-                <div class="text-center pt-6 border-t border-green-100">
-                    <p class="text-neutral-600 text-sm">
-                        پہلے سے اکاؤنٹ ہے؟
-                        <a href="{{ route('login') }}" class="text-green-600 hover:text-green-700 font-semibold">
-                            لاگ ان کریں
-                        </a>
-                    </p>
-                </div>
-            </form>
-        </div>
+        <!-- Login Link -->
+        <p class="mt-6 text-center text-sm text-gray-600">
+            پہلے سے اکاؤنٹ ہے؟
+            <a href="{{ route('login') }}" class="text-green-600 font-semibold hover:underline">لاگ ان کریں</a>
+        </p>
     </div>
-</x-guest-layout>
+
+</body>
+</html>
