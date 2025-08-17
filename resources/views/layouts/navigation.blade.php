@@ -1,100 +1,133 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
-    <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-                    </a>
-                </div>
+<header class="absolute inset-x-0 top-0 z-50">
+    <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
+        <div class="flex lg:flex-1">
+            <a href="{{ route('dashboard') }}" class="-m-1.5 p-1.5">
+                <span class="sr-only">Your Company</span>
+                <img src="{{ asset('favicon.svg') }}" alt="Daak Khana Logo" class="h-8 w-auto" />
+            </a>
+        </div>
+        <div class="flex lg:hidden">
+            <button type="button" @click="open = ! open" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-200">
+                <span class="sr-only">Open main menu</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
+                    <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+        <div class="hidden lg:flex lg:gap-x-12">
+            @auth
+                @if(auth()->user()->isCustomer())
+                    <a href="{{ route('dashboard') }}" class="text-sm/6 font-semibold text-white">Dashboard</a>
+                    <a href="{{ route('companies.index') }}" class="text-sm/6 font-semibold text-white">Browse Companies</a>
+                    <a href="{{ route('bookings.index') }}" class="text-sm/6 font-semibold text-white">My Bookings</a>
+                    <a href="{{ route('ai.chat.show') }}" class="text-sm/6 font-semibold text-white">AI Assistant</a>
+                    @if(!auth()->user()->isProActive())
+                        <a href="{{ route('subscriptions.create') }}" class="text-sm/6 font-semibold text-indigo-400">Upgrade to Pro</a>
+                    @endif
+                @elseif(auth()->user()->isCourier())
+                    <a href="{{ route('courier.dashboard') }}" class="text-sm/6 font-semibold text-white">Dashboard</a>
+                    <a href="{{ route('courier.company.profile') }}" class="text-sm/6 font-semibold text-white">Company Profile</a>
+                    <a href="{{ route('courier.bookings') }}" class="text-sm/6 font-semibold text-white">Bookings</a>
+                    @if(auth()->user()->isProActive())
+                        <a href="{{ route('ai.chat.show') }}" class="text-sm/6 font-semibold text-white">AI Tools</a>
+                    @else
+                        <a href="{{ route('subscriptions.create') }}" class="text-sm/6 font-semibold text-indigo-400">Pro Features</a>
+                    @endif
+                @endif
+            @endauth
+        </div>
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+            @auth
+                <div class="relative">
+                    <button @click="profileOpen = ! profileOpen" class="flex items-center text-sm font-semibold text-white focus:outline-none">
+                        {{ Auth::user()->name }}
+                        <svg class="ml-2 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
-            </div>
-
-            <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
-                <x-dropdown align="right" width="48">
-                    <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <div>{{ Auth::user()->name }}</div>
-
-                            <div class="ms-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </button>
-                    </x-slot>
-
-                    <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
-
-                        <!-- Authentication -->
+                    <div x-show="profileOpen" @click.away="profileOpen = false" class="absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-800 ring-1 ring-black ring-opacity-5">
+                        <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-white hover:bg-gray-700">Profile</a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
+                            <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-white hover:bg-gray-700"
+                               onclick="event.preventDefault(); this.closest('form').submit();">
+                                Log Out
+                            </a>
                         </form>
-                    </x-slot>
-                </x-dropdown>
-            </div>
+                    </div>
+                </div>
+            @else
+                <a href="{{ route('login') }}" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
+            @endauth
+        </div>
+    </nav>
 
-            <!-- Hamburger -->
-            <div class="-me-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    <!-- Mobile menu -->
+    <div x-show="open" class="lg:hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 z-50"></div>
+        <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10">
+            <div class="flex items-center justify-between">
+                <a href="{{ route('dashboard') }}" class="-m-1.5 p-1.5">
+                    <span class="sr-only">Your Company</span>
+                    <img src="{{ asset('favicon.svg') }}" alt="Daak Khana Logo" class="h-8 w-auto" />
+                </a>
+                <button type="button" @click="open = false" class="-m-2.5 rounded-md p-2.5 text-gray-200">
+                    <span class="sr-only">Close menu</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6">
+                        <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </button>
             </div>
+            <div class="mt-6 flow-root">
+                <div class="-my-6 divide-y divide-gray-500/10">
+                    <div class="space-y-2 py-6">
+                        @auth
+                            @if(auth()->user()->isCustomer())
+                                <a href="{{ route('dashboard') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">Dashboard</a>
+                                <a href="{{ route('companies.index') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">Browse Companies</a>
+                                <a href="{{ route('bookings.index') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">My Bookings</a>
+                                <a href="{{ route('ai.chat.show') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">AI Assistant</a>
+                                @if(!auth()->user()->isProActive())
+                                    <a href="{{ route('subscriptions.create') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-indigo-400 hover:bg-gray-800">Upgrade to Pro</a>
+                                @endif
+                            @elseif(auth()->user()->isCourier())
+                                <a href="{{ route('courier.dashboard') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">Dashboard</a>
+                                <a href="{{ route('courier.company.profile') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">Company Profile</a>
+                                <a href="{{ route('courier.bookings') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">Bookings</a>
+                                @if(auth()->user()->isProActive())
+                                    <a href="{{ route('ai.chat.show') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">AI Tools</a>
+                                @else
+                                    <a href="{{ route('subscriptions.create') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-indigo-400 hover:bg-gray-800">Pro Features</a>
+                                @endif
+                            @endif
+                        @endauth
+                    </div>
+                    <div class="py-6">
+                        @auth
+                            <a href="{{ route('profile.edit') }}" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-gray-800">Profile</a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a href="{{ route('logout') }}" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-gray-800"
+                                   onclick="event.preventDefault(); this.closest('form').submit();">
+                                    Log Out
+                                </a>
+                            </form>
+                        @else
+                            <a href="{{ route('login') }}" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-gray-800">Log in</a>
+                        @endauth
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</header>
 
-    <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-        </div>
-
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-            </div>
-
-            <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
-                </x-responsive-nav-link>
-
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-responsive-nav-link>
-                </form>
-            </div>
-        </div>
-    </div>
-</nav>
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('navigation', () => ({
+            open: false,
+            profileOpen: false,
+        }))
+    })
+</script>
