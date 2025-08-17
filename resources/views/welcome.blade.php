@@ -150,120 +150,126 @@
     </nav>
 
     <!-- 1. Hero Section -->
-    <section class="pt-20 bg-gradient-to-br from-white via-green-50/30 to-white hero-pattern min-h-screen flex items-center relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="text-center lg:text-left fade-in-up">
-                    <div class="inline-flex items-center px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-semibold mb-8 border border-green-200">
-                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
-                        Pakistan's First Professional Courier Marketplace
+<section class="pt-20 bg-gradient-to-br from-white via-green-50/30 to-white hero-pattern min-h-screen flex items-center relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <!-- Left Content -->
+            <div class="text-center lg:text-left fade-in-up">
+                <div class="inline-flex items-center px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-semibold mb-8 border border-green-200">
+                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+                    Pakistan's First Professional Courier Marketplace
+                </div>
+                
+                <h1 class="text-5xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight">
+                    <span class="gradient-text">Daak Khana</span>
+                    <span class="block text-4xl lg:text-5xl mt-2">Connecting Pakistan</span>
+                    <span class="block text-4xl lg:text-5xl">One Delivery at a Time</span>
+                </h1>
+                
+                <p class="text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                    Experience Pakistan's most advanced courier marketplace. Connect with verified courier companies, compare prices, track shipments in real-time, and enjoy seamless delivery solutions across the country.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
+                    <a href="/register?type=customer" class="group gradient-bg text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center">
+                        Start Shipping Now
+                        <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                    <a href="#companies" class="group border-2 border-green-200 hover:border-green-300 bg-white hover:bg-green-50 text-gray-700 hover:text-green-700 px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300 hover:shadow-lg flex items-center justify-center">
+                        Explore Companies
+                        <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Right Content (Web Illustration) -->
+            <div class="relative fade-in-up">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                    <!-- Replace with web illustration -->
+                    <img src="https://cdni.iconscout.com/illustration/premium/thumb/delivery-service-illustration-download-in-svg-png-gif-file-formats--tracking-man-deliver-transport-logistic-pack-people-illustrations-3185072.png" 
+                         alt="Courier Service Web Illustration" 
+                         class="w-full h-96 object-contain bg-white">
+                    
+                    <!-- Greyish Tint Overlay -->
+                    <div class="absolute inset-0 bg-gray-900 bg-opacity-10"></div>
+
+                    <!-- Keep your tracking overlay card -->
+                    <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-2xl p-6 border border-green-100">
+                        <!-- Live Tracking Header -->
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <div class="font-bold text-gray-900 text-sm">Live Tracking</div>
+                                    <div class="text-xs text-gray-600">Karachi to Lahore</div>
+                                </div>
+                            </div>
+                            <div class="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">
+                                In Transit
+                            </div>
+                        </div>
+                        
+                        <!-- Progress Bar -->
+                        <div class="mb-4">
+                            <div class="flex justify-between text-xs text-gray-500 mb-1">
+                                <span>Karachi</span>
+                                <span>Lahore</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-1.5">
+                                <div class="gradient-bg h-1.5 rounded-full w-3/4"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Courier Info -->
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                                    <span class="text-green-700 font-bold text-xs">TCS</span>
+                                </div>
+                                <div class="ml-2">
+                                    <div class="font-semibold text-gray-900 text-xs">TCS Express</div>
+                                    <div class="flex items-center">
+                                        <div class="flex text-yellow-400 text-xs">★★★★★</div>
+                                        <span class="text-gray-500 text-xs ml-1">4.8</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="font-bold text-gray-900 text-sm">Rs. 450</div>
+                                <div class="text-xs text-gray-500">Next Day</div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <h1 class="text-5xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight">
-                        <span class="gradient-text">Daak Khana</span>
-                        <span class="block text-4xl lg:text-5xl mt-2">Connecting Pakistan</span>
-                        <span class="block text-4xl lg:text-5xl">One Delivery at a Time</span>
-                    </h1>
-                    
-                    <p class="text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                        Experience Pakistan's most advanced courier marketplace. Connect with verified courier companies, compare prices, track shipments in real-time, and enjoy seamless delivery solutions across the country.
-                    </p>
-                    
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
-                        <a href="/register?type=customer" class="group gradient-bg text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center">
-                            Start Shipping Now
-                            <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
-                        </a>
-                        <a href="#companies" class="group border-2 border-green-200 hover:border-green-300 bg-white hover:bg-green-50 text-gray-700 hover:text-green-700 px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300 hover:shadow-lg flex items-center justify-center">
-                            Explore Companies
-                            <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                            </svg>
-                        </a>
+                </div>
+
+                <!-- Floating Stats -->
+                <div class="absolute -top-4 -right-4 bg-white rounded-xl p-3 shadow-lg border border-green-100 z-20">
+                    <div class="text-center">
+                        <div class="text-xl font-bold gradient-text">24/7</div>
+                        <div class="text-xs text-gray-500">Support</div>
                     </div>
                 </div>
                 
-                <div class="relative fade-in-up">
-                    <!-- Static Image -->
-                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
-                        <img src="{{ asset('static-image.png') }}" alt="Courier Service" class="w-full h-96 object-cover">
-                        
-                        <!-- Greyish Tint Overlay -->
-                        <div class="absolute inset-0 bg-gray-900 bg-opacity-20"></div>
-                        
-                        <!-- Live Tracking Overlay Card -->
-                        <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-2xl p-6 border border-green-100">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="flex items-center">
-                                    <div class="w-100 h-100 gradient-bg rounded-xl flex items-center justify-center">
-                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                        </svg>
-                                    </div>
-                                    <div class="ml-3">
-                                        <div class="font-bold text-gray-900 text-sm">Live Tracking</div>
-                                        <div class="text-xs text-gray-600">Karachi to Lahore</div>
-                                    </div>
-                                </div>
-                                <div class="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">
-                                    In Transit
-                                </div>
-                            </div>
-                            
-                            <!-- Progress Bar -->
-                            <div class="mb-4">
-                                <div class="flex justify-between text-xs text-gray-500 mb-1">
-                                    <span>Karachi</span>
-                                    <span>Lahore</span>
-                                </div>
-                                <div class="w-full bg-gray-200 rounded-full h-1.5">
-                                    <div class="gradient-bg h-1.5 rounded-full w-3/4"></div>
-                                </div>
-                            </div>
-                            
-                            <!-- Courier Info -->
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center">
-                                    <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
-                                        <span class="text-green-700 font-bold text-xs">TCS</span>
-                                    </div>
-                                    <div class="ml-2">
-                                        <div class="font-semibold text-gray-900 text-xs">TCS Express</div>
-                                        <div class="flex items-center">
-                                            <div class="flex text-yellow-400 text-xs">★★★★★</div>
-                                            <span class="text-gray-500 text-xs ml-1">4.8</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-right">
-                                    <div class="font-bold text-gray-900 text-sm">Rs. 450</div>
-                                    <div class="text-xs text-gray-500">Next Day</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Floating Stats -->
-                    <div class="absolute -top-4 -right-4 bg-white rounded-xl p-3 shadow-lg border border-green-100 z-20">
-                        <div class="text-center">
-                            <div class="text-xl font-bold gradient-text">24/7</div>
-                            <div class="text-xs text-gray-500">Support</div>
-                        </div>
-                    </div>
-                    
-                    <div class="absolute -bottom-4 -left-4 bg-white rounded-xl p-3 shadow-lg border border-green-100 z-20">
-                        <div class="text-center">
-                            <div class="text-xl font-bold gradient-text">98%</div>
-                            <div class="text-xs text-gray-500">On Time</div>
-                        </div>
+                <div class="absolute -bottom-4 -left-4 bg-white rounded-xl p-3 shadow-lg border border-green-100 z-20">
+                    <div class="text-center">
+                        <div class="text-xl font-bold gradient-text">98%</div>
+                        <div class="text-xs text-gray-500">On Time</div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- 2. Trust Indicators -->
     <section class="py-16 bg-white border-b border-gray-100">
