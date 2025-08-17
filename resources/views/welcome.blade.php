@@ -520,147 +520,94 @@
 
     <!-- 7. Pricing Section -->
     <section id="pricing" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <div class="inline-flex items-center px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-semibold mb-6 border border-green-200">
-                    Pricing
-                </div>
-                <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Transparent and Competitive Pricing</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    No hidden fees, no surprises. Just clear, competitive pricing that fits your budget and delivery requirements.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-green-300 transition-all duration-300 hover:shadow-lg">
-                    <div class="text-center mb-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Standard</h3>
-                        <div class="text-4xl font-bold text-gray-900 mb-2">Rs. 150</div>
-                        <div class="text-gray-500">per package</div>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            2-3 days delivery
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Basic tracking
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Up to 5kg weight
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Email notifications
-                        </li>
-                    </ul>
-                    <button class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 rounded-xl font-semibold transition-colors">
-                        Choose Standard
-                    </button>
-                </div>
-                
-                <div class="gradient-bg rounded-2xl p-8 text-white relative transform scale-105 shadow-xl">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                        <span class="bg-yellow-400 text-yellow-900 px-4 py-1 rounded-full text-sm font-semibold">Most Popular</span>
-                    </div>
-                    <div class="text-center mb-8">
-                        <h3 class="text-2xl font-bold mb-2">Express</h3>
-                        <div class="text-4xl font-bold mb-2">Rs. 300</div>
-                        <div class="text-green-100">per package</div>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Next day delivery
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Real-time tracking
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Up to 10kg weight
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            SMS notifications
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Priority support
-                        </li>
-                    </ul>
-                    <button class="w-full bg-white text-green-600 py-3 rounded-xl font-semibold hover:bg-green-50 transition-colors">
-                        Choose Express
-                    </button>
-                </div>
-                
-                <div class="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-green-300 transition-all duration-300 hover:shadow-lg">
-                    <div class="text-center mb-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Same Day</h3>
-                        <div class="text-4xl font-bold text-gray-900 mb-2">Rs. 500</div>
-                        <div class="text-gray-500">per package</div>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Same day delivery
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Live tracking
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Up to 15kg weight
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Instant notifications
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            Dedicated support
-                        </li>
-                    </ul>
-                    <button class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 rounded-xl font-semibold transition-colors">
-                        Choose Same Day
-                    </button>
-                </div>
-            </div>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-20">
+      <div class="inline-flex items-center px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-semibold mb-6 border border-green-200">
+        Pricing
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Simple and Transparent Plans</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Choose the plan that fits your needs. Start free and upgrade anytime for more powerful features.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Free Plan -->
+      <div class="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-green-300 transition-all duration-300 hover:shadow-lg">
+        <div class="text-center mb-8">
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">Free</h3>
+          <div class="text-4xl font-bold text-gray-900 mb-2">Rs. 0</div>
+          <div class="text-gray-500">per month</div>
         </div>
-    </section>    <!-- 
-8. Testimonials Section -->
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Basic tracking
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            AI Assistant
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Notifications
+          </li>
+        </ul>
+        <button class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 rounded-xl font-semibold transition-colors">
+          Get Started Free
+        </button>
+      </div>
+
+      <!-- Pro Plan -->
+      <div class="gradient-bg rounded-2xl p-8 text-white relative transform scale-105 shadow-xl">
+        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+          <span class="bg-yellow-400 text-yellow-900 px-4 py-1 rounded-full text-sm font-semibold">Best Value</span>
+        </div>
+        <div class="text-center mb-8">
+          <h3 class="text-2xl font-bold mb-2">Pro</h3>
+          <div class="text-4xl font-bold mb-2">Rs. 200</div>
+          <div class="text-green-100">per month</div>
+        </div>
+        <ul class="space-y-4 mb-8">
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Live tracking
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Messaging
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Pro Badge
+          </li>
+          <li class="flex items-center">
+            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Higher Rankings
+          </li>
+        </ul>
+        <button class="w-full bg-white text-green-600 py-3 rounded-xl font-semibold hover:bg-green-50 transition-colors">
+          Upgrade to Pro
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- 8. Customer Reviews Section -->
     <section class="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-20">
