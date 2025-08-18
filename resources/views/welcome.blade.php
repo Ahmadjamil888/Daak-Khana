@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +21,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
@@ -34,146 +34,121 @@
                 extend: {
                     fontFamily: {
                         'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                        'display': ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
                     },
                     colors: {
+                        border: "hsl(214.3 31.8% 91.4%)",
+                        input: "hsl(214.3 31.8% 91.4%)",
+                        ring: "hsl(142.1 76.2% 36.3%)",
+                        background: "hsl(0 0% 100%)",
+                        foreground: "hsl(222.2 84% 4.9%)",
                         primary: {
-                            50: '#fdf4ff',
-                            100: '#fae8ff',
-                            200: '#f5d0fe',
-                            300: '#f0abfc',
-                            400: '#e879f9',
-                            500: '#d946ef',
-                            600: '#c026d3',
-                            700: '#a21caf',
-                            800: '#86198f',
-                            900: '#701a75',
+                            DEFAULT: "hsl(142.1 76.2% 36.3%)",
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                            foreground: "hsl(210 40% 98%)",
                         },
                         secondary: {
-                            50: '#f8fafc',
-                            100: '#f1f5f9',
-                            200: '#e2e8f0',
-                            300: '#cbd5e1',
-                            400: '#94a3b8',
-                            500: '#64748b',
-                            600: '#475569',
-                            700: '#334155',
-                            800: '#1e293b',
-                            900: '#0f172a',
+                            DEFAULT: "hsl(210 40% 96%)",
+                            foreground: "hsl(222.2 47.4% 11.2%)",
+                        },
+                        destructive: {
+                            DEFAULT: "hsl(0 84.2% 60.2%)",
+                            foreground: "hsl(210 40% 98%)",
+                        },
+                        muted: {
+                            DEFAULT: "hsl(210 40% 96%)",
+                            foreground: "hsl(215.4 16.3% 46.9%)",
                         },
                         accent: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            200: '#bae6fd',
-                            300: '#7dd3fc',
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            700: '#0369a1',
-                            800: '#075985',
-                            900: '#0c4a6e',
-                        }
+                            DEFAULT: "hsl(210 40% 96%)",
+                            foreground: "hsl(222.2 47.4% 11.2%)",
+                        },
+                        popover: {
+                            DEFAULT: "hsl(0 0% 100%)",
+                            foreground: "hsl(222.2 84% 4.9%)",
+                        },
+                        card: {
+                            DEFAULT: "hsl(0 0% 100%)",
+                            foreground: "hsl(222.2 84% 4.9%)",
+                        },
                     },
-                    backgroundImage: {
-                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                        'gradient-primary': 'linear-gradient(135deg, #d946ef 0%, #c026d3 50%, #a21caf 100%)',
-                        'gradient-soft': 'linear-gradient(135deg, #fdf4ff 0%, #f8fafc 100%)',
-                        'hero-mesh': `
-                            radial-gradient(circle at 20% 80%, rgba(217, 70, 239, 0.1) 0%, transparent 50%),
-                            radial-gradient(circle at 80% 20%, rgba(192, 38, 211, 0.1) 0%, transparent 50%),
-                            radial-gradient(circle at 40% 40%, rgba(162, 28, 175, 0.05) 0%, transparent 50%)
-                        `,
-                        'glass': 'linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%)',
+                    borderRadius: {
+                        lg: "0.5rem",
+                        md: "0.375rem",
+                        sm: "0.25rem",
                     },
                     animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'bounce-subtle': 'bounce-subtle 2s ease-in-out infinite',
-                        'slide-up': 'slideUp 0.6s ease-out forwards',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'fade-in': 'fadeIn 0.6s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'scale-in': 'scaleIn 0.3s ease-out',
                     },
                     keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        fadeInUp: {
-                            'from': { opacity: '0', transform: 'translateY(30px)' },
-                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
                         },
                         slideUp: {
-                            'from': { opacity: '0', transform: 'translateY(40px)' },
-                            'to': { opacity: '1', transform: 'translateY(0)' },
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         },
-                        'bounce-subtle': {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
                         },
-                        glow: {
-                            'from': { boxShadow: '0 0 20px rgba(217, 70, 239, 0.3)' },
-                            'to': { boxShadow: '0 0 40px rgba(217, 70, 239, 0.5)' },
-                        }
                     },
-                    boxShadow: {
-                        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
-                        'medium': '0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 30px -5px rgba(0, 0, 0, 0.05)',
-                        'large': '0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 20px 50px -10px rgba(0, 0, 0, 0.1)',
-                        'glow': '0 0 50px rgba(217, 70, 239, 0.2)',
-                        'glass': '0 8px 32px rgba(31, 38, 135, 0.37)',
-                    },
-                    backdropBlur: {
-                        'xs': '2px',
-                    }
                 }
             }
         }
     </script>
-</head><body class="font-sans antialiased bg-gradient-to-br from-gray-50 via-white to-primary-50/30 min-h-screen">
+</head>
+<body class="font-sans antialiased bg-background min-h-screen">
     <!-- Navigation -->
-    <nav class="bg-white/95 backdrop-blur-lg border-b border-gray-200/50 fixed w-full top-0 z-50 shadow-sm" x-data="{ mobileMenuOpen: false }">
+    <nav class="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50" x-data="{ mobileMenuOpen: false }">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 sm:h-20 items-center">
+            <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center">
                     <div class="flex-shrink-0 flex items-center">
-                        <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-lg">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="h-8 w-8 bg-primary text-primary-foreground rounded-md flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
                             </svg>
                         </div>
-                        <div class="ml-3">
-                            <span class="text-xl font-bold text-gray-900">Daak Khana</span>
-                            <div class="text-xs text-primary-600 font-medium hidden sm:block">Pakistan's Premier Courier Platform</div>
-                        </div>
+                        <span class="ml-2 text-xl font-bold text-foreground">Daak Khana</span>
                     </div>
                     
                     <!-- Desktop Navigation -->
-                    <div class="hidden lg:ml-12 lg:flex lg:space-x-1">
-                        <a href="#services" class="text-gray-600 hover:text-primary-600 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-primary-50">Services</a>
-                        <a href="#how-it-works" class="text-gray-600 hover:text-primary-600 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-primary-50">How It Works</a>
-                        <a href="#features" class="text-gray-600 hover:text-primary-600 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-primary-50">Features</a>
-                        <a href="#companies" class="text-gray-600 hover:text-primary-600 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-primary-50">Companies</a>
-                        <a href="#pricing" class="text-gray-600 hover:text-primary-600 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-primary-50">Pricing</a>
-                        <a href="#contact" class="text-gray-600 hover:text-primary-600 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-primary-50">Contact</a>
-                    </div>
+                    <nav class="hidden md:ml-10 md:flex md:space-x-8">
+                        <a href="#services" class="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-accent">Services</a>
+                        <a href="#how-it-works" class="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-accent">How It Works</a>
+                        <a href="#features" class="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-accent">Features</a>
+                        <a href="#pricing" class="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-accent">Pricing</a>
+                        <a href="#contact" class="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-accent">Contact</a>
+                    </nav>
                 </div>
                 
                 <!-- Desktop Auth Buttons -->
-                <div class="hidden lg:flex lg:items-center lg:space-x-3">
-                    <a href="/login" class="text-gray-600 hover:text-primary-600 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-primary-50">Sign In</a>
-                    <a href="/register" class="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 shadow-lg hover:shadow-xl hover:from-primary-600 hover:to-primary-700 transform hover:scale-[1.02]">
-                        Get Started Free
+                <div class="hidden md:flex md:items-center md:space-x-4">
+                    <a href="/login" class="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors">Sign In</a>
+                    <a href="/register" class="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-md text-sm font-medium transition-colors">
+                        Get Started
                     </a>
                 </div>
                 
                 <!-- Mobile menu button -->
-                <div class="lg:hidden flex items-center">
-                    <button @click="mobileMenuOpen = !mobileMenuOpen" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500" aria-controls="mobile-menu" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg x-show="!mobileMenuOpen" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="md:hidden">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="p-2 text-muted-foreground hover:text-foreground hover:bg-accent rounded-md">
+                        <svg x-show="!mobileMenuOpen" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
-                        <svg x-show="mobileMenuOpen" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg x-show="mobileMenuOpen" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
@@ -181,235 +156,166 @@
             </div>
             
             <!-- Mobile menu -->
-            <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="lg:hidden" id="mobile-menu">
-                <div class="pt-2 pb-3 space-y-1">
-                    <a href="#services" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Services</a>
-                    <a href="#how-it-works" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">How It Works</a>
-                    <a href="#features" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Features</a>
-                    <a href="#companies" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Companies</a>
-                    <a href="#pricing" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Pricing</a>
-                    <a href="#contact" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Contact</a>
+            <div x-show="mobileMenuOpen" x-transition class="md:hidden border-t border-border">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#services" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md">Services</a>
+                    <a href="#how-it-works" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md">How It Works</a>
+                    <a href="#features" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md">Features</a>
+                    <a href="#pricing" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md">Pricing</a>
+                    <a href="#contact" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md">Contact</a>
                 </div>
-                <div class="pt-4 pb-3 border-t border-gray-200">
-                    <div class="flex flex-col space-y-3 px-3">
-                        <a href="/login" class="text-center bg-white border border-green-300 text-green-600 px-4 py-2 rounded-lg text-base font-medium hover:bg-green-50 transition-colors">Login</a>
-                        <a href="/register" class="text-center gradient-bg text-white px-4 py-2 rounded-lg text-base font-medium hover:opacity-90 transition-opacity">Get Started</a>
+                <div class="border-t border-border pt-4 pb-3">
+                    <div class="flex flex-col space-y-3 px-2">
+                        <a href="/login" class="text-center bg-secondary text-secondary-foreground px-4 py-2 rounded-md text-sm font-medium hover:bg-secondary/80 transition-colors">Sign In</a>
+                        <a href="/register" class="text-center bg-primary text-primary-foreground px-4 py-2 rounded-md text-sm font-medium hover:bg-primary/90 transition-colors">Get Started</a>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- 1. Hero Section -->
-<section class="pt-20 bg-gradient-to-br from-white via-primary-50/30 to-accent-50/20 bg-hero-mesh min-h-screen flex items-center relative overflow-hidden">
-    <!-- Background Elements -->
-    <div class="absolute inset-0 overflow-hidden">
-        <div class="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-gradient-to-br from-primary-400/20 to-primary-600/10 blur-3xl animate-float"></div>
-        <div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-gradient-to-br from-accent-400/15 to-accent-600/5 blur-3xl animate-float" style="animation-delay: 2s;"></div>
-    </div>
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-            
-            <!-- Left Content -->
-            <div class="lg:col-span-7 text-center lg:text-left animate-slide-up">
-                <div class="inline-flex items-center px-6 py-3 bg-white/70 backdrop-blur-sm text-primary-700 rounded-full text-sm font-semibold mb-8 border border-white/20 shadow-glass hover:bg-white/80 transition-all duration-300">
-                    <span class="w-2 h-2 bg-primary-500 rounded-full mr-3 animate-pulse-slow"></span>
-                    🚀 Pakistan's Leading Courier Platform
-                </div>
-                
-                <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 mb-8 leading-tight">
-                    <span class="bg-gradient-primary bg-clip-text text-transparent animate-glow">Streamline</span>
-                    <span class="block mt-2">Your Logistics</span>
-                    <span class="block text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-secondary-600 font-medium mt-3 opacity-90">Across Pakistan</span>
-                </h1>
-                
-                <p class="text-xl sm:text-2xl text-secondary-600 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
-                    Connect with Pakistan's most reliable courier partners. Compare prices, track deliveries in real-time, and manage all your shipments from one powerful platform.
-                </p>
-                
-                <!-- Stats Row -->
-                <div class="flex flex-col sm:flex-row gap-8 sm:gap-12 mb-12 justify-center lg:justify-start">
-                    <div class="text-center lg:text-left group">
-                        <div class="text-3xl sm:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-200">500+</div>
-                        <div class="text-sm text-secondary-500 font-medium mt-1">Verified Couriers</div>
-                    </div>
-                    <div class="text-center lg:text-left group">
-                        <div class="text-3xl sm:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-200">50K+</div>
-                        <div class="text-sm text-secondary-500 font-medium mt-1">Successful Deliveries</div>
-                    </div>
-                    <div class="text-center lg:text-left group">
-                        <div class="text-3xl sm:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-200">98%</div>
-                        <div class="text-sm text-secondary-500 font-medium mt-1">On-Time Rate</div>
-                    </div>
-                </div>
-                
-                <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start mb-12">
-                    <a href="/register?type=customer" class="group relative bg-gradient-primary text-white px-10 py-5 rounded-2xl text-lg font-bold transition-all duration-300 shadow-glow hover:shadow-large hover:scale-[1.02] flex items-center justify-center overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <span class="relative z-10">Start Shipping Free</span>
-                        <svg class="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform duration-200 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
-                    <a href="#how-it-works" class="group bg-white/70 backdrop-blur-sm border-2 border-white/30 hover:border-primary-300 hover:bg-white/90 text-secondary-700 hover:text-primary-700 px-10 py-5 rounded-2xl text-lg font-bold transition-all duration-300 shadow-glass hover:shadow-medium flex items-center justify-center">
-                        How It Works
-                        <svg class="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-9 4h10a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                        </svg>
-                    </a>
-                </div>
-                
-                <!-- Trust indicators -->
-                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-secondary-500">
-                    <div class="flex items-center gap-2 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full">
-                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                        </svg>
-                        <span class="font-medium">Secure payments</span>
-                    </div>
-                    <div class="flex items-center gap-2 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full">
-                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <span class="font-medium">Verified couriers</span>
-                    </div>
-                    <div class="flex items-center gap-2 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full">
-                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        <span class="font-medium">24/7 Support</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Right Content (Dashboard Preview) -->
-            <div class="lg:col-span-5 relative animate-fade-in-up">
-                <div class="relative bg-white rounded-3xl shadow-large border border-gray-200/50 overflow-hidden">
-                    <!-- Browser Header -->
-                    <div class="flex items-center justify-between px-6 py-4 bg-gray-50 border-b border-gray-200">
-                        <div class="flex items-center space-x-2">
-                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-                        </div>
-                        <div class="flex-1 mx-4">
-                            <div class="bg-white border border-gray-300 rounded-lg px-3 py-1 text-sm text-gray-600 text-center">
-                                daakkhana.com/dashboard
-                            </div>
-                        </div>
-                        <div class="w-8 h-8"></div>
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-background pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center rounded-full border border-border px-3 py-1 text-sm bg-muted/50 mb-6">
+                        <span class="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse"></span>
+                        Pakistan's Leading Courier Platform
                     </div>
                     
-                    <!-- Dashboard Content -->
-                    <div class="p-6 bg-gradient-to-br from-gray-50 to-white">
-                        <!-- Top Navigation -->
-                        <div class="flex items-center justify-between mb-6">
-                            <h2 class="text-xl font-semibold text-gray-900">Dashboard</h2>
-                            <div class="flex items-center space-x-3">
-                                <div class="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5v-5h5v5z"></path>
-                                    </svg>
-                                </div>
-                                <div class="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-                                    <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Stats Cards -->
-                        <div class="grid grid-cols-2 gap-4 mb-6">
-                            <div class="bg-white rounded-xl p-4 border border-gray-200 shadow-soft">
-                                <div class="flex items-center justify-between">
-                                    <div>
-                                        <div class="text-2xl font-bold text-gray-900">127</div>
-                                        <div class="text-sm text-gray-600">Active Shipments</div>
-                                    </div>
-                                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-white rounded-xl p-4 border border-gray-200 shadow-soft">
-                                <div class="flex items-center justify-between">
-                                    <div>
-                                        <div class="text-2xl font-bold text-gray-900">₨ 45.2K</div>
-                                        <div class="text-sm text-gray-600">This Month</div>
-                                    </div>
-                                    <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                                        <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Recent Activity -->
-                        <div class="bg-white rounded-xl border border-gray-200 shadow-soft">
-                            <div class="px-4 py-3 border-b border-gray-200">
-                                <h3 class="text-sm font-semibold text-gray-900">Recent Activity</h3>
-                            </div>
-                            <div class="p-4 space-y-3">
-                                <div class="flex items-center space-x-3">
-                                    <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse-slow"></div>
-                                    <div class="flex-1 min-w-0">
-                                        <div class="text-sm text-gray-900">Package delivered to Lahore</div>
-                                        <div class="text-xs text-gray-500">2 min ago</div>
-                                    </div>
-                                    <div class="text-xs font-medium text-green-600">₨ 450</div>
-                                </div>
-                                <div class="flex items-center space-x-3">
-                                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
-                                    <div class="flex-1 min-w-0">
-                                        <div class="text-sm text-gray-900">New booking from Karachi</div>
-                                        <div class="text-xs text-gray-500">15 min ago</div>
-                                    </div>
-                                    <div class="text-xs font-medium text-blue-600">₨ 320</div>
-                                </div>
-                                <div class="flex items-center space-x-3">
-                                    <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                                    <div class="flex-1 min-w-0">
-                                        <div class="text-sm text-gray-900">Package in transit to Islamabad</div>
-                                        <div class="text-xs text-gray-500">1 hour ago</div>
-                                    </div>
-                                    <div class="text-xs font-medium text-yellow-600">₨ 280</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Floating Elements -->
-                <div class="absolute -top-4 -right-4 bg-white rounded-xl p-3 shadow-medium border border-gray-200 animate-bounce-subtle">
-                    <div class="flex items-center space-x-2">
-                        <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                        <div class="text-xs font-semibold text-gray-900">Live Updates</div>
-                    </div>
-                </div>
-                
-                <div class="absolute -bottom-6 -left-6 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl p-4 shadow-large animate-float">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl mb-6">
+                        Streamline Your
+                        <span class="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent"> Logistics</span>
+                        <span class="block text-muted-foreground text-3xl sm:text-4xl lg:text-5xl font-normal mt-2">Across Pakistan</span>
+                    </h1>
+                    
+                    <p class="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Connect with Pakistan's most reliable courier partners. Compare prices, track deliveries in real-time, and manage all your shipments from one powerful platform.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
+                        <a href="/register?type=customer" class="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-lg text-lg font-semibold transition-colors inline-flex items-center justify-center">
+                            Start Shipping Free
+                            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                             </svg>
+                        </a>
+                        <a href="#how-it-works" class="border border-input bg-background hover:bg-accent hover:text-accent-foreground px-8 py-3 rounded-lg text-lg font-semibold transition-colors inline-flex items-center justify-center">
+                            How It Works
+                        </a>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="flex flex-col sm:flex-row gap-8 justify-center lg:justify-start">
+                        <div class="text-center lg:text-left">
+                            <div class="text-3xl font-bold text-foreground">500+</div>
+                            <div class="text-sm text-muted-foreground">Verified Couriers</div>
                         </div>
-                        <div>
-                            <div class="font-semibold text-sm">Quick Booking</div>
-                            <div class="text-xs opacity-90">Same day delivery</div>
+                        <div class="text-center lg:text-left">
+                            <div class="text-3xl font-bold text-foreground">50K+</div>
+                            <div class="text-sm text-muted-foreground">Successful Deliveries</div>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <div class="text-3xl font-bold text-foreground">98%</div>
+                            <div class="text-sm text-muted-foreground">On-Time Rate</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Content (Dashboard Preview) -->
+                <div class="relative">
+                    <div class="bg-card border border-border rounded-lg shadow-lg overflow-hidden">
+                        <!-- Dashboard Header -->
+                        <div class="bg-muted/50 px-6 py-4 border-b border-border">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-semibold text-foreground">Dashboard Overview</h3>
+                                <div class="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Dashboard Content -->
+                        <div class="p-6">
+                            <!-- Stats Grid -->
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div class="bg-background border border-border rounded-lg p-4">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <div class="text-2xl font-bold text-foreground">127</div>
+                                            <div class="text-sm text-muted-foreground">Active Orders</div>
+                                        </div>
+                                        <div class="w-8 h-8 bg-primary/10 rounded-md flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-background border border-border rounded-lg p-4">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <div class="text-2xl font-bold text-foreground">₨45.2K</div>
+                                            <div class="text-sm text-muted-foreground">Revenue</div>
+                                        </div>
+                                        <div class="w-8 h-8 bg-primary/10 rounded-md flex items-center justify-center">
+                                            <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Recent Orders -->
+                            <div class="bg-background border border-border rounded-lg">
+                                <div class="px-4 py-3 border-b border-border">
+                                    <h4 class="font-medium text-foreground text-sm">Recent Orders</h4>
+                                </div>
+                                <div class="p-4 space-y-3">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-2 h-2 bg-primary rounded-full"></div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="text-sm text-foreground">Package to Lahore</div>
+                                            <div class="text-xs text-muted-foreground">2 min ago</div>
+                                        </div>
+                                        <div class="text-xs font-medium text-primary">₨450</div>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="text-sm text-foreground">Booking from Karachi</div>
+                                            <div class="text-xs text-muted-foreground">15 min ago</div>
+                                        </div>
+                                        <div class="text-xs font-medium text-blue-600">₨320</div>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="text-sm text-foreground">Transit to Islamabad</div>
+                                            <div class="text-xs text-muted-foreground">1 hour ago</div>
+                                        </div>
+                                        <div class="text-xs font-medium text-yellow-600">₨280</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating indicators -->
+                    <div class="absolute -top-4 -right-4 bg-primary text-primary-foreground rounded-lg px-3 py-2 text-sm font-medium shadow-lg animate-pulse">
+                        Live Updates
+                    </div>
+                    <div class="absolute -bottom-4 -left-4 bg-card border border-border rounded-lg p-3 shadow-lg">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                            <span class="text-xs font-medium text-foreground">Real-time Tracking</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- 2. Trust Indicators -->
     <section class="py-16 bg-white border-b border-gray-100">
