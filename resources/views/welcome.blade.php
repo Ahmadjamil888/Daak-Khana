@@ -632,6 +632,7 @@
         <div class="text-center mb-8">
           <h3 class="text-2xl font-bold mb-2">Pro</h3>
           <div class="text-4xl font-extrabold mb-1">Rs. 200</div>
+          
           <div class="text-green-100">per month</div>
         </div>
         <ul class="space-y-4 mb-8">
