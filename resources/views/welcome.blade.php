@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Daak Khana - Pakistan's First Professional Courier Marketplace</title>
-    <meta name="description" content="Pakistan's premier courier marketplace connecting customers with verified courier companies. Fast, secure, and reliable delivery solutions across Pakistan.">
-    <meta name="keywords" content="courier Pakistan, delivery service, logistics, parcel delivery, express shipping, same day delivery, TCS, Leopards, courier marketplace">
+    <title>Daak Khana - Pakistan's Premier Courier Marketplace</title>
+    <meta name="description" content="Pakistan's leading courier marketplace platform. Connect with verified courier partners, track deliveries in real-time, and streamline your logistics operations with advanced technology.">
+    <meta name="keywords" content="courier Pakistan, delivery service, logistics platform, parcel tracking, express shipping, courier marketplace, TCS, Leopards">
     <meta name="author" content="Daak Khana">
     
     <!-- Open Graph -->
-     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <meta property="og:title" content="Daak Khana - Pakistan's First Professional Courier Marketplace">
+    <meta property="og:title" content="Daak Khana - Pakistan's Premier Courier Marketplace">
     <meta property="og:description" content="Connect with verified courier companies for reliable delivery solutions across Pakistan.">
     <meta property="og:image" content="{{ asset('favicon.svg') }}">
     <meta property="og:url" content="{{ url('/') }}">
@@ -25,89 +23,146 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
-    <style>
-        :root {
-            --primary-50: #f0fdf4;
-            --primary-100: #dcfce7;
-            --primary-200: #bbf7d0;
-            --primary-300: #86efac;
-            --primary-400: #4ade80;
-            --primary-500: #22c55e;
-            --primary-600: #16a34a;
-            --primary-700: #15803d;
-            --primary-800: #166534;
-            --primary-900: #14532d;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        'display': ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#fdf4ff',
+                            100: '#fae8ff',
+                            200: '#f5d0fe',
+                            300: '#f0abfc',
+                            400: '#e879f9',
+                            500: '#d946ef',
+                            600: '#c026d3',
+                            700: '#a21caf',
+                            800: '#86198f',
+                            900: '#701a75',
+                        },
+                        secondary: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        },
+                        accent: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'gradient-primary': 'linear-gradient(135deg, #d946ef 0%, #c026d3 50%, #a21caf 100%)',
+                        'gradient-soft': 'linear-gradient(135deg, #fdf4ff 0%, #f8fafc 100%)',
+                        'hero-mesh': `
+                            radial-gradient(circle at 20% 80%, rgba(217, 70, 239, 0.1) 0%, transparent 50%),
+                            radial-gradient(circle at 80% 20%, rgba(192, 38, 211, 0.1) 0%, transparent 50%),
+                            radial-gradient(circle at 40% 40%, rgba(162, 28, 175, 0.05) 0%, transparent 50%)
+                        `,
+                        'glass': 'linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%)',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-subtle': 'bounce-subtle 2s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeInUp: {
+                            'from': { opacity: '0', transform: 'translateY(30px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideUp: {
+                            'from': { opacity: '0', transform: 'translateY(40px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'bounce-subtle': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            'from': { boxShadow: '0 0 20px rgba(217, 70, 239, 0.3)' },
+                            'to': { boxShadow: '0 0 40px rgba(217, 70, 239, 0.5)' },
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
+                        'medium': '0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 30px -5px rgba(0, 0, 0, 0.05)',
+                        'large': '0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 20px 50px -10px rgba(0, 0, 0, 0.1)',
+                        'glow': '0 0 50px rgba(217, 70, 239, 0.2)',
+                        'glass': '0 8px 32px rgba(31, 38, 135, 0.37)',
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    }
+                }
+            }
         }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero-pattern {
-            background-image: 
-                radial-gradient(circle at 20% 50%, rgba(34, 197, 94, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(22, 163, 74, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(21, 128, 61, 0.04) 0%, transparent 50%);
-        }
-        
-        .floating-animation {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-</head><body class
-="font-sans antialiased bg-white">
+    </script>
+</head><body class="font-sans antialiased bg-gradient-to-br from-gray-50 via-white to-primary-50/30 min-h-screen">
     <!-- Navigation -->
-    <nav class="bg-white/95 backdrop-blur-md border-b border-green-100 fixed w-full top-0 z-50 shadow-sm" x-data="{ mobileMenuOpen: false }">
+    <nav class="bg-white/95 backdrop-blur-lg border-b border-gray-200/50 fixed w-full top-0 z-50 shadow-sm" x-data="{ mobileMenuOpen: false }">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 sm:h-20 items-center">
                 <div class="flex items-center">
                     <div class="flex-shrink-0 flex items-center">
-                        <img src="{{ asset('mylogo.png') }}" alt="Daak Khana Logo" class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl shadow-md">
-                        <div class="ml-2 sm:ml-3">
-                            <span class="text-lg sm:text-xl font-bold text-gray-900">Daak Khana</span>
-                            <div class="text-xs text-green-600 font-semibold hidden sm:block">Pakistan's #1 Courier Platform</div>
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-lg">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                            </svg>
+                        </div>
+                        <div class="ml-3">
+                            <span class="text-xl font-bold text-gray-900">Daak Khana</span>
+                            <div class="text-xs text-primary-600 font-medium hidden sm:block">Pakistan's Premier Courier Platform</div>
                         </div>
                     </div>
                     
                     <!-- Desktop Navigation -->
-                    <div class="hidden lg:ml-12 lg:flex lg:space-x-8">
-                        <a href="#services" class="text-gray-600 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-green-50">Services</a>
-                        <a href="#how-it-works" class="text-gray-600 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-green-50">How It Works</a>
-                        <a href="#features" class="text-gray-600 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-green-50">Features</a>
-                        <a href="#companies" class="text-gray-600 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-green-50">Companies</a>
-                        <a href="#pricing" class="text-gray-600 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-green-50">Pricing</a>
-                        <a href="#contact" class="text-gray-600 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-green-50">Contact</a>
+                    <div class="hidden lg:ml-12 lg:flex lg:space-x-1">
+                        <a href="#services" class="text-gray-600 hover:text-primary-600 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-primary-50">Services</a>
+                        <a href="#how-it-works" class="text-gray-600 hover:text-primary-600 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-primary-50">How It Works</a>
+                        <a href="#features" class="text-gray-600 hover:text-primary-600 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-primary-50">Features</a>
+                        <a href="#companies" class="text-gray-600 hover:text-primary-600 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-primary-50">Companies</a>
+                        <a href="#pricing" class="text-gray-600 hover:text-primary-600 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-primary-50">Pricing</a>
+                        <a href="#contact" class="text-gray-600 hover:text-primary-600 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-primary-50">Contact</a>
                     </div>
                 </div>
                 
                 <!-- Desktop Auth Buttons -->
-                <div class="hidden lg:flex lg:items-center lg:space-x-4">
-                    <a href="/login" class="text-gray-600 hover:text-green-600 px-4 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-green-50">Login</a>
-                    <a href="/register" class="gradient-bg text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-                        Get Started
+                <div class="hidden lg:flex lg:items-center lg:space-x-3">
+                    <a href="/login" class="text-gray-600 hover:text-primary-600 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-primary-50">Sign In</a>
+                    <a href="/register" class="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 shadow-lg hover:shadow-xl hover:from-primary-600 hover:to-primary-700 transform hover:scale-[1.02]">
+                        Get Started Free
                     </a>
                 </div>
                 
@@ -146,119 +201,209 @@
     </nav>
 
     <!-- 1. Hero Section -->
-<section class="pt-20 bg-gradient-to-br from-white via-green-50/30 to-white hero-pattern min-h-screen flex items-center relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-20 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<section class="pt-20 bg-gradient-to-br from-white via-primary-50/30 to-accent-50/20 bg-hero-mesh min-h-screen flex items-center relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-gradient-to-br from-primary-400/20 to-primary-600/10 blur-3xl animate-float"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-gradient-to-br from-accent-400/15 to-accent-600/5 blur-3xl animate-float" style="animation-delay: 2s;"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
             
             <!-- Left Content -->
-            <div class="text-center lg:text-left fade-in-up">
-                <div class="inline-flex items-center px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-semibold mb-8 border border-green-200">
-                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
-                    Pakistan's First Professional Courier Marketplace
+            <div class="lg:col-span-7 text-center lg:text-left animate-slide-up">
+                <div class="inline-flex items-center px-6 py-3 bg-white/70 backdrop-blur-sm text-primary-700 rounded-full text-sm font-semibold mb-8 border border-white/20 shadow-glass hover:bg-white/80 transition-all duration-300">
+                    <span class="w-2 h-2 bg-primary-500 rounded-full mr-3 animate-pulse-slow"></span>
+                    🚀 Pakistan's Leading Courier Platform
                 </div>
                 
-                <h1 class="text-5xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight">
-                    <span class="gradient-text">Daak Khana</span>
-                    <span class="block text-4xl lg:text-5xl mt-2">Connecting Pakistan</span>
-                    <span class="block text-4xl lg:text-5xl">One Delivery at a Time</span>
+                <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 mb-8 leading-tight">
+                    <span class="bg-gradient-primary bg-clip-text text-transparent animate-glow">Streamline</span>
+                    <span class="block mt-2">Your Logistics</span>
+                    <span class="block text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-secondary-600 font-medium mt-3 opacity-90">Across Pakistan</span>
                 </h1>
                 
-                <p class="text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                    Experience Pakistan's most advanced courier marketplace. Connect with verified courier companies, compare prices, track shipments in real-time, and enjoy seamless delivery solutions across the country.
+                <p class="text-xl sm:text-2xl text-secondary-600 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
+                    Connect with Pakistan's most reliable courier partners. Compare prices, track deliveries in real-time, and manage all your shipments from one powerful platform.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
-                    <a href="/register?type=customer" class="group gradient-bg text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center">
-                        Start Shipping Now
-                        <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Stats Row -->
+                <div class="flex flex-col sm:flex-row gap-8 sm:gap-12 mb-12 justify-center lg:justify-start">
+                    <div class="text-center lg:text-left group">
+                        <div class="text-3xl sm:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-200">500+</div>
+                        <div class="text-sm text-secondary-500 font-medium mt-1">Verified Couriers</div>
+                    </div>
+                    <div class="text-center lg:text-left group">
+                        <div class="text-3xl sm:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-200">50K+</div>
+                        <div class="text-sm text-secondary-500 font-medium mt-1">Successful Deliveries</div>
+                    </div>
+                    <div class="text-center lg:text-left group">
+                        <div class="text-3xl sm:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-200">98%</div>
+                        <div class="text-sm text-secondary-500 font-medium mt-1">On-Time Rate</div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start mb-12">
+                    <a href="/register?type=customer" class="group relative bg-gradient-primary text-white px-10 py-5 rounded-2xl text-lg font-bold transition-all duration-300 shadow-glow hover:shadow-large hover:scale-[1.02] flex items-center justify-center overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <span class="relative z-10">Start Shipping Free</span>
+                        <svg class="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform duration-200 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                         </svg>
                     </a>
-                    <a href="#companies" class="group border-2 border-green-200 hover:border-green-300 bg-white hover:bg-green-50 text-gray-700 hover:text-green-700 px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300 hover:shadow-lg flex items-center justify-center">
-                        Explore Companies
-                        <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    <a href="#how-it-works" class="group bg-white/70 backdrop-blur-sm border-2 border-white/30 hover:border-primary-300 hover:bg-white/90 text-secondary-700 hover:text-primary-700 px-10 py-5 rounded-2xl text-lg font-bold transition-all duration-300 shadow-glass hover:shadow-medium flex items-center justify-center">
+                        How It Works
+                        <svg class="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-9 4h10a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                         </svg>
                     </a>
                 </div>
+                
+                <!-- Trust indicators -->
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-secondary-500">
+                    <div class="flex items-center gap-2 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full">
+                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                        <span class="font-medium">Secure payments</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full">
+                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span class="font-medium">Verified couriers</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full">
+                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span class="font-medium">24/7 Support</span>
+                    </div>
+                </div>
             </div>
             
-            <!-- Right Content (Web Illustration) -->
-            <div class="relative fade-in-up">
-                <div class="relative rounded-3xl overflow-hidden shadow-2xl">
-                    <!-- Replace with web illustration -->
-                    <img src="https://cdni.iconscout.com/illustration/premium/thumb/delivery-service-illustration-download-in-svg-png-gif-file-formats--tracking-man-deliver-transport-logistic-pack-people-illustrations-3185072.png" 
-                         class="w-full h-96 object-contain bg-white">
+            <!-- Right Content (Dashboard Preview) -->
+            <div class="lg:col-span-5 relative animate-fade-in-up">
+                <div class="relative bg-white rounded-3xl shadow-large border border-gray-200/50 overflow-hidden">
+                    <!-- Browser Header -->
+                    <div class="flex items-center justify-between px-6 py-4 bg-gray-50 border-b border-gray-200">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                        </div>
+                        <div class="flex-1 mx-4">
+                            <div class="bg-white border border-gray-300 rounded-lg px-3 py-1 text-sm text-gray-600 text-center">
+                                daakkhana.com/dashboard
+                            </div>
+                        </div>
+                        <div class="w-8 h-8"></div>
+                    </div>
                     
-                    <!-- Greyish Tint Overlay -->
-                    <div class="absolute inset-0 bg-gray-900 bg-opacity-10"></div>
-
-                    <!-- Keep your tracking overlay card -->
-                    <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-2xl p-6 border border-green-100">
-                        <!-- Live Tracking Header -->
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center">
-                                <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <!-- Dashboard Content -->
+                    <div class="p-6 bg-gradient-to-br from-gray-50 to-white">
+                        <!-- Top Navigation -->
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-xl font-semibold text-gray-900">Dashboard</h2>
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5v-5h5v5z"></path>
                                     </svg>
                                 </div>
-                                <div class="ml-3">
-                                    <div class="font-bold text-gray-900 text-sm">Live Tracking</div>
-                                    <div class="text-xs text-gray-600">Karachi to Lahore</div>
+                                <div class="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"></path>
+                                    </svg>
                                 </div>
-                            </div>
-                            <div class="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">
-                                In Transit
                             </div>
                         </div>
                         
-                        <!-- Progress Bar -->
-                        <div class="mb-4">
-                            <div class="flex justify-between text-xs text-gray-500 mb-1">
-                                <span>Karachi</span>
-                                <span>Lahore</span>
-                            </div>
-                            <div class="w-full bg-gray-200 rounded-full h-1.5">
-                                <div class="gradient-bg h-1.5 rounded-full w-3/4"></div>
-                            </div>
-                        </div>
-                        
-                        <!-- Courier Info -->
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
-                                    <span class="text-green-700 font-bold text-xs">TCS</span>
-                                </div>
-                                <div class="ml-2">
-                                    <div class="font-semibold text-gray-900 text-xs">TCS Express</div>
-                                    <div class="flex items-center">
-                                        <div class="flex text-yellow-400 text-xs">★★★★★</div>
-                                        <span class="text-gray-500 text-xs ml-1">4.8</span>
+                        <!-- Stats Cards -->
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-white rounded-xl p-4 border border-gray-200 shadow-soft">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <div class="text-2xl font-bold text-gray-900">127</div>
+                                        <div class="text-sm text-gray-600">Active Shipments</div>
+                                    </div>
+                                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                        </svg>
                                     </div>
                                 </div>
                             </div>
-                            <div class="text-right">
-                                <div class="font-bold text-gray-900 text-sm">Rs. 450</div>
-                                <div class="text-xs text-gray-500">Next Day</div>
+                            <div class="bg-white rounded-xl p-4 border border-gray-200 shadow-soft">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <div class="text-2xl font-bold text-gray-900">₨ 45.2K</div>
+                                        <div class="text-sm text-gray-600">This Month</div>
+                                    </div>
+                                    <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Recent Activity -->
+                        <div class="bg-white rounded-xl border border-gray-200 shadow-soft">
+                            <div class="px-4 py-3 border-b border-gray-200">
+                                <h3 class="text-sm font-semibold text-gray-900">Recent Activity</h3>
+                            </div>
+                            <div class="p-4 space-y-3">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse-slow"></div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="text-sm text-gray-900">Package delivered to Lahore</div>
+                                        <div class="text-xs text-gray-500">2 min ago</div>
+                                    </div>
+                                    <div class="text-xs font-medium text-green-600">₨ 450</div>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="text-sm text-gray-900">New booking from Karachi</div>
+                                        <div class="text-xs text-gray-500">15 min ago</div>
+                                    </div>
+                                    <div class="text-xs font-medium text-blue-600">₨ 320</div>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="text-sm text-gray-900">Package in transit to Islamabad</div>
+                                        <div class="text-xs text-gray-500">1 hour ago</div>
+                                    </div>
+                                    <div class="text-xs font-medium text-yellow-600">₨ 280</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Floating Stats -->
-                <div class="absolute -top-4 -right-4 bg-white rounded-xl p-3 shadow-lg border border-green-100 z-20">
-                    <div class="text-center">
-                        <div class="text-xl font-bold gradient-text">24/7</div>
-                        <div class="text-xs text-gray-500">Support</div>
+                
+                <!-- Floating Elements -->
+                <div class="absolute -top-4 -right-4 bg-white rounded-xl p-3 shadow-medium border border-gray-200 animate-bounce-subtle">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                        <div class="text-xs font-semibold text-gray-900">Live Updates</div>
                     </div>
                 </div>
                 
-                <div class="absolute -bottom-4 -left-4 bg-white rounded-xl p-3 shadow-lg border border-green-100 z-20">
-                    <div class="text-center">
-                        <div class="text-xl font-bold gradient-text">98%</div>
-                        <div class="text-xs text-gray-500">On Time</div>
+                <div class="absolute -bottom-6 -left-6 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl p-4 shadow-large animate-float">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sm">Quick Booking</div>
+                            <div class="text-xs opacity-90">Same day delivery</div>
+                        </div>
                     </div>
                 </div>
             </div>
