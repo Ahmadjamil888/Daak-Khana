@@ -27,8 +27,9 @@
                                 @foreach($companies as $company)
                                     <option value="{{ $company->id }}" 
                                             data-services="{{ $company->services->toJson() }}"
+                                            data-currency="{{ $company->currency ?? 'PKR' }}"
                                             {{ old('courier_company_id', $selectedCompany?->id) == $company->id ? 'selected' : '' }}>
-                                        {{ $company->company_name }} - Starting from PKR {{ number_format($company->base_price, 0) }}
+                                        {{ $company->company_name }} - Starting from {{ $company->currency ?? 'PKR' }} {{ number_format($company->base_price, 0) }}
                                     </option>
                                 @endforeach
                             </select>
@@ -47,7 +48,7 @@
                                 <option value="">Select a service</option>
                                 @if($selectedService)
                                     <option value="{{ $selectedService->id }}" selected>
-                                        {{ $selectedService->service_name }} - PKR {{ number_format($selectedService->price, 0) }}
+                                        {{ $selectedService->service_name }} - {{ $selectedService->currency ?? $selectedService->courierCompany->currency ?? 'PKR' }} {{ number_format($selectedService->price, 0) }}
                                     </option>
                                 @endif
                             </select>
@@ -203,12 +204,15 @@
             
             if (selectedOption.value) {
                 const services = JSON.parse(selectedOption.dataset.services || '[]');
+                const companyCurrency = selectedOption.dataset.currency || 'PKR';
                 
                 services.forEach(service => {
                     const option = document.createElement('option');
                     option.value = service.id;
-                    option.textContent = `${service.service_name} - $${parseFloat(service.price).toFixed(2)} (${service.delivery_time})`;
+                    const serviceCurrency = service.currency || companyCurrency;
+                    option.textContent = `${service.service_name} - ${serviceCurrency} ${parseFloat(service.price).toFixed(0)} (${service.delivery_time})`;
                     option.dataset.price = service.price;
+                    option.dataset.currency = serviceCurrency;
                     serviceSelect.appendChild(option);
                 });
             }
@@ -226,10 +230,11 @@
             
             if (selectedOption.value && selectedOption.dataset.price) {
                 const basePrice = parseFloat(selectedOption.dataset.price);
-                const weightMultiplier = weight * 0.5; // $0.5 per kg
+                const currency = selectedOption.dataset.currency || 'PKR';
+                const weightMultiplier = weight * 25; // PKR 25 per kg (adjusted for PKR)
                 const totalCost = basePrice + weightMultiplier;
                 
-                costDisplay.textContent = `$${totalCost.toFixed(2)}`;
+                costDisplay.textContent = `${currency} ${Math.round(totalCost)}`;
             } else {
                 costDisplay.textContent = 'Select service to see cost';
             }

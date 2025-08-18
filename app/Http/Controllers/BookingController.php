@@ -87,7 +87,10 @@ class BookingController extends Controller
 
         // Calculate total amount (basic calculation)
         $basePrice = $service->price;
-        $weightMultiplier = $request->package_weight * 0.5; // $0.5 per kg
+        $currency = $company->currency ?? 'PKR';
+        // Use currency-appropriate weight multiplier
+        $weightRate = $currency === 'USD' ? 0.5 : 25; // USD: $0.5 per kg, PKR: 25 per kg
+        $weightMultiplier = $request->package_weight * $weightRate;
         $totalAmount = $basePrice + $weightMultiplier;
 
         // Check if user is pro and add pro features

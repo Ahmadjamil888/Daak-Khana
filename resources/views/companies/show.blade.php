@@ -102,7 +102,7 @@
                                         <div class="flex justify-between items-start mb-2">
                                             <h4 class="text-lg font-medium text-neutral-900">{{ $service->service_name }}</h4>
                                             <div class="text-right">
-                                                <div class="text-2xl font-bold text-primary-600">${{ number_format($service->price, 2) }}</div>
+                                                <div class="text-2xl font-bold text-primary-600">{{ $service->currency ?? $company->currency ?? 'PKR' }} {{ number_format($service->price, 0) }}</div>
                                                 <div class="text-sm text-neutral-500">{{ $service->delivery_time }}</div>
                                             </div>
                                         </div>
@@ -146,7 +146,7 @@
                         <div class="space-y-4">
                             <div>
                                 <span class="text-sm text-neutral-500">Starting from</span>
-                                <div class="text-3xl font-bold text-primary-600">${{ number_format($company->base_price, 2) }}</div>
+                                <div class="text-3xl font-bold text-primary-600">{{ $company->currency ?? 'PKR' }} {{ number_format($company->base_price, 0) }}</div>
                             </div>
                             
                             @auth

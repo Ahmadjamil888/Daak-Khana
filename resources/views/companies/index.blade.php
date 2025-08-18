@@ -136,7 +136,7 @@
                                 <div class="flex items-center justify-between">
                                     <div>
                                         <span class="text-sm text-neutral-500">Starting from</span>
-                                        <div class="text-lg font-semibold text-neutral-900">${{ number_format($company->base_price, 2) }}</div>
+                                        <div class="text-lg font-semibold text-neutral-900">{{ $company->currency ?? 'PKR' }} {{ number_format($company->base_price, 0) }}</div>
                                     </div>
                                     <div class="flex space-x-2">
                                         <a href="{{ route('companies.show', $company) }}" 

@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                             <div class="text-right">
-                                <div class="text-3xl font-bold text-primary-600">PKR {{ number_format($booking->total_amount, 0) }}</div>
+                                <div class="text-3xl font-bold text-primary-600">{{ $booking->courierCompany->currency ?? 'PKR' }} {{ number_format($booking->total_amount, 0) }}</div>
                                 <div class="text-sm text-neutral-500">Total Amount</div>
                             </div>
                         </div>
@@ -215,16 +215,16 @@
                         <div class="space-y-3">
                             <div class="flex justify-between">
                                 <span class="text-neutral-600">Service Fee</span>
-                                <span class="font-medium text-neutral-900">PKR {{ number_format($booking->courierService->price, 0) }}</span>
+                                <span class="font-medium text-neutral-900">{{ $booking->courierCompany->currency ?? 'PKR' }} {{ number_format($booking->courierService->price, 0) }}</span>
                             </div>
                             <div class="flex justify-between">
                                 <span class="text-neutral-600">Weight Fee ({{ $booking->package_details['weight'] }}kg)</span>
-                                <span class="font-medium text-neutral-900">PKR {{ number_format(($booking->package_details['weight'] ?? 0) * 0.5, 0) }}</span>
+                                <span class="font-medium text-neutral-900">{{ $booking->courierCompany->currency ?? 'PKR' }} {{ number_format(($booking->package_details['weight'] ?? 0) * 25, 0) }}</span>
                             </div>
                             <div class="border-t border-neutral-200 pt-3">
                                 <div class="flex justify-between">
                                     <span class="text-lg font-semibold text-neutral-900">Total</span>
-                                    <span class="text-lg font-bold text-primary-600">PKR {{ number_format($booking->total_amount, 0) }}</span>
+                                    <span class="text-lg font-bold text-primary-600">{{ $booking->courierCompany->currency ?? 'PKR' }} {{ number_format($booking->total_amount, 0) }}</span>
                                 </div>
                             </div>
                         </div>

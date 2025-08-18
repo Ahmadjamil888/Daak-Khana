@@ -15,6 +15,7 @@ class CourierService extends Model
         'description',
         'service_type',
         'price',
+        'currency',
         'delivery_time',
         'max_weight',
         'package_types',
@@ -39,5 +40,38 @@ class CourierService extends Model
     public function bookings()
     {
         return $this->hasMany(Booking::class);
+    }
+
+    /**
+     * Get formatted price with currency
+     */
+    public function getFormattedPriceAttribute()
+    {
+        $currency = $this->currency ?? $this->courierCompany->currency ?? 'PKR';
+        return $currency . ' ' . number_format($this->price, 0);
+    }
+
+    /**
+     * Get currency symbol
+     */
+    public function getCurrencySymbolAttribute()
+    {
+        $currency = $this->currency ?? $this->courierCompany->currency ?? 'PKR';
+        $symbols = [
+            'PKR' => 'Rs.',
+            'USD' => '$',
+            'EUR' => '€',
+            'GBP' => '£',
+        ];
+        
+        return $symbols[$currency] ?? $currency;
+    }
+
+    /**
+     * Get effective currency (fallback to company currency)
+     */
+    public function getEffectiveCurrencyAttribute()
+    {
+        return $this->currency ?? $this->courierCompany->currency ?? 'PKR';
     }
 }

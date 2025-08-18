@@ -19,6 +19,7 @@ class CourierCompany extends Model
         'rating',
         'total_reviews',
         'base_price',
+        'currency',
         'pricing_structure',
         'is_verified',
         'is_featured',
@@ -53,5 +54,28 @@ class CourierCompany extends Model
     public function bookings()
     {
         return $this->hasMany(Booking::class);
+    }
+
+    /**
+     * Get formatted base price with currency
+     */
+    public function getFormattedBasePriceAttribute()
+    {
+        return $this->currency . ' ' . number_format($this->base_price, 0);
+    }
+
+    /**
+     * Get currency symbol
+     */
+    public function getCurrencySymbolAttribute()
+    {
+        $symbols = [
+            'PKR' => 'Rs.',
+            'USD' => '$',
+            'EUR' => '€',
+            'GBP' => '£',
+        ];
+        
+        return $symbols[$this->currency] ?? $this->currency;
     }
 }
