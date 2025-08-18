@@ -82,18 +82,18 @@
     <!-- Navigation -->
     <nav class="bg-white/95 backdrop-blur-md border-b border-green-100 fixed w-full top-0 z-50 shadow-sm" x-data="{ mobileMenuOpen: false }">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
+            <div class="flex justify-between h-16 sm:h-20 items-center">
                 <div class="flex items-center">
                     <div class="flex-shrink-0 flex items-center">
-                        <img src="{{ asset('mylogo.png') }}" alt="Daak Khana Logo" class="w-10 h-10 rounded-xl shadow-md">
-                        <div class="ml-3 hidden sm:block">
-                            <span class="text-xl font-bold text-gray-900">Daak Khana</span>
-                            <div class="text-xs text-green-600 font-semibold">Pakistan's #1 Courier Platform</div>
+                        <img src="{{ asset('mylogo.png') }}" alt="Daak Khana Logo" class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl shadow-md">
+                        <div class="ml-2 sm:ml-3">
+                            <span class="text-lg sm:text-xl font-bold text-gray-900">Daak Khana</span>
+                            <div class="text-xs text-green-600 font-semibold hidden sm:block">Pakistan's #1 Courier Platform</div>
                         </div>
                     </div>
                     
                     <!-- Desktop Navigation -->
-                    <div class="hidden md:ml-12 md:flex md:space-x-8">
+                    <div class="hidden lg:ml-12 lg:flex lg:space-x-8">
                         <a href="#services" class="text-gray-600 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-green-50">Services</a>
                         <a href="#how-it-works" class="text-gray-600 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-green-50">How It Works</a>
                         <a href="#features" class="text-gray-600 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-green-50">Features</a>
@@ -104,15 +104,15 @@
                 </div>
                 
                 <!-- Desktop Auth Buttons -->
-                <div class="hidden md:flex md:items-center md:space-x-4">
+                <div class="hidden lg:flex lg:items-center lg:space-x-4">
                     <a href="/login" class="text-gray-600 hover:text-green-600 px-4 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-green-50">Login</a>
-                    <a href="/register" class="gradient-bg text-white px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                    <a href="/register" class="gradient-bg text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                         Get Started
                     </a>
                 </div>
                 
                 <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
+                <div class="lg:hidden flex items-center">
                     <button @click="mobileMenuOpen = !mobileMenuOpen" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-green-600 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500" aria-controls="mobile-menu" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
                         <svg x-show="!mobileMenuOpen" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -126,23 +126,19 @@
             </div>
             
             <!-- Mobile menu -->
-            <div x-show="mobileMenuOpen" class="md:hidden" id="mobile-menu">
+            <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="lg:hidden" id="mobile-menu">
                 <div class="pt-2 pb-3 space-y-1">
-                    <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Services</a>
-                    <a href="#how-it-works" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">How It Works</a>
-                    <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Features</a>
-                    <a href="#companies" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Companies</a>
-                    <a href="#pricing" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Pricing</a>
-                    <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Contact</a>
+                    <a href="#services" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Services</a>
+                    <a href="#how-it-works" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">How It Works</a>
+                    <a href="#features" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Features</a>
+                    <a href="#companies" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Companies</a>
+                    <a href="#pricing" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Pricing</a>
+                    <a href="#contact" @click="mobileMenuOpen = false" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-green-600 hover:bg-green-50">Contact</a>
                 </div>
                 <div class="pt-4 pb-3 border-t border-gray-200">
-                    <div class="flex items-center px-5">
-                        <div class="flex items-center">
-                            <a href="/login" class="w-full text-center bg-white border border-green-300 text-green-600 px-4 py-2 rounded-lg text-base font-medium hover:bg-green-50">Login</a>
-                        </div>
-                        <div class="mt-3 sm:mt-0 sm:ml-3 flex items-center">
-                            <a href="/register" class="w-full text-center gradient-bg text-white px-4 py-2 rounded-lg text-base font-medium hover:opacity-90">Get Started</a>
-                        </div>
+                    <div class="flex flex-col space-y-3 px-3">
+                        <a href="/login" class="text-center bg-white border border-green-300 text-green-600 px-4 py-2 rounded-lg text-base font-medium hover:bg-green-50 transition-colors">Login</a>
+                        <a href="/register" class="text-center gradient-bg text-white px-4 py-2 rounded-lg text-base font-medium hover:opacity-90 transition-opacity">Get Started</a>
                     </div>
                 </div>
             </div>
