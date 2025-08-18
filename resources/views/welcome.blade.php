@@ -554,82 +554,66 @@
                 </div>
             </div>
         </div>
-    </section>    <!-- 6
-. Statistics Section -->
-    <section class="py-24 gradient-bg text-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl lg:text-5xl font-bold mb-6">Our Impact in Numbers</h2>
-                <p class="text-xl text-green-100 max-w-3xl mx-auto">
-                    Thousands of satisfied customers across Pakistan trust us with their delivery needs. Join our growing community.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="text-5xl font-bold mb-2">500+</div>
-                    <div class="text-green-100 font-medium">Verified Couriers</div>
-                    <div class="text-sm text-green-200 mt-1">Across Pakistan</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-5xl font-bold mb-2">50K+</div>
-                    <div class="text-green-100 font-medium">Successful Deliveries</div>
-                    <div class="text-sm text-green-200 mt-1">And counting</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-5xl font-bold mb-2">25K+</div>
-                    <div class="text-green-100 font-medium">Happy Customers</div>
-                    <div class="text-sm text-green-200 mt-1">Nationwide</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-5xl font-bold mb-2">98%</div>
-                    <div class="text-green-100 font-medium">On-Time Delivery</div>
-                    <div class="text-sm text-green-200 mt-1">Success rate</div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </section>    <!-- 6. Statistics Section -->
+<section class="py-24 bg-gradient-to-r from-green-600 to-green-800 text-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl lg:text-5xl font-bold mb-6">Our Impact in Numbers</h2>
+      <p class="text-lg lg:text-xl text-green-100 max-w-3xl mx-auto">
+        Thousands of satisfied customers across Pakistan trust us with their delivery needs. Join our growing community.
+      </p>
+    </div>
 
-    <!-- 7. Pricing Section -->
-    <section id="pricing" class="py-24 bg-white">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+      <div class="text-center">
+        <div class="text-5xl font-extrabold mb-2">500+</div>
+        <div class="text-green-50 font-medium">Verified Couriers</div>
+        <div class="text-sm text-green-200 mt-1">Across Pakistan</div>
+      </div>
+      <div class="text-center">
+        <div class="text-5xl font-extrabold mb-2">50K+</div>
+        <div class="text-green-50 font-medium">Successful Deliveries</div>
+        <div class="text-sm text-green-200 mt-1">And counting</div>
+      </div>
+      <div class="text-center">
+        <div class="text-5xl font-extrabold mb-2">25K+</div>
+        <div class="text-green-50 font-medium">Happy Customers</div>
+        <div class="text-sm text-green-200 mt-1">Nationwide</div>
+      </div>
+      <div class="text-center">
+        <div class="text-5xl font-extrabold mb-2">98%</div>
+        <div class="text-green-50 font-medium">On-Time Delivery</div>
+        <div class="text-sm text-green-200 mt-1">Success rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Pricing Section -->
+<section id="pricing" class="py-24 bg-gray-50">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="text-center mb-20">
-      <div class="inline-flex items-center px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-semibold mb-6 border border-green-200">
+      <span class="inline-flex items-center px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold border border-green-300">
         Pricing
-      </div>
-      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Simple and Transparent Plans</h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+      </span>
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mt-6 mb-4">Simple and Transparent Plans</h2>
+      <p class="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
         Choose the plan that fits your needs. Start free and upgrade anytime for more powerful features.
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <!-- Free Plan -->
-      <div class="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-green-300 transition-all duration-300 hover:shadow-lg">
+      <div class="bg-white rounded-2xl p-8 border border-gray-200 hover:border-green-400 transition-all duration-300 hover:shadow-lg">
         <div class="text-center mb-8">
           <h3 class="text-2xl font-bold text-gray-900 mb-2">Free</h3>
-          <div class="text-4xl font-bold text-gray-900 mb-2">Rs. 0</div>
+          <div class="text-4xl font-extrabold text-gray-900 mb-1">Rs. 0</div>
           <div class="text-gray-500">per month</div>
         </div>
-        <ul class="space-y-4 mb-8">
-          <li class="flex items-center">
-            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-            </svg>
-            Basic tracking
-          </li>
-          <li class="flex items-center">
-            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-            </svg>
-            AI Assistant
-          </li>
-          <li class="flex items-center">
-            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-            </svg>
-            Notifications
-          </li>
+        <ul class="space-y-4 mb-8 text-gray-700">
+          <li class="flex items-center"><span class="text-green-500 mr-3">✔</span> Basic tracking</li>
+          <li class="flex items-center"><span class="text-green-500 mr-3">✔</span> AI Assistant</li>
+          <li class="flex items-center"><span class="text-green-500 mr-3">✔</span> Notifications</li>
         </ul>
         <button class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 rounded-xl font-semibold transition-colors">
           Get Started Free
@@ -637,48 +621,29 @@
       </div>
 
       <!-- Pro Plan -->
-      <div class="gradient-bg rounded-2xl p-8 text-white relative transform scale-105 shadow-xl">
+      <div class="bg-gradient-to-r from-green-600 to-green-700 rounded-2xl p-8 text-white relative shadow-xl">
         <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
           <span class="bg-yellow-400 text-yellow-900 px-4 py-1 rounded-full text-sm font-semibold">Best Value</span>
         </div>
         <div class="text-center mb-8">
           <h3 class="text-2xl font-bold mb-2">Pro</h3>
-          <div class="text-4xl font-bold mb-2">Rs. 200</div>
+          <div class="text-4xl font-extrabold mb-1">Rs. 200</div>
           <div class="text-green-100">per month</div>
         </div>
         <ul class="space-y-4 mb-8">
-          <li class="flex items-center">
-            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-            </svg>
-            Live tracking
-          </li>
-          <li class="flex items-center">
-            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-            </svg>
-            Messaging
-          </li>
-          <li class="flex items-center">
-            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-            </svg>
-            Pro Badge
-          </li>
-          <li class="flex items-center">
-            <svg class="w-5 h-5 text-white mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-            </svg>
-            Higher Rankings
-          </li>
+          <li class="flex items-center"><span class="text-yellow-300 mr-3">✔</span> Live tracking</li>
+          <li class="flex items-center"><span class="text-yellow-300 mr-3">✔</span> Messaging</li>
+          <li class="flex items-center"><span class="text-yellow-300 mr-3">✔</span> Pro Badge</li>
+          <li class="flex items-center"><span class="text-yellow-300 mr-3">✔</span> Higher Rankings</li>
         </ul>
-        <button class="w-full bg-white text-green-600 py-3 rounded-xl font-semibold hover:bg-green-50 transition-colors">
+        <button class="w-full bg-white text-green-700 py-3 rounded-xl font-semibold hover:bg-green-50 transition-colors">
           Upgrade to Pro
         </button>
       </div>
     </div>
   </div>
 </section>
+
     <!-- 8. Customer Reviews Section -->
     <section class="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -817,97 +782,102 @@
     </section>
 
     <!-- 10. Mobile App Section -->
-    <section class="py-24 gradient-bg text-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <div class="inline-flex items-center px-4 py-2 bg-white/20 text-white rounded-full text-sm font-semibold mb-6">
-                        Mobile App
-                    </div>
-                    <h2 class="text-4xl lg:text-5xl font-bold mb-6">Book Couriers from Your Phone</h2>
-                    <p class="text-xl text-green-100 mb-8 leading-relaxed">
-                        Download the Daak Khana mobile app and track, book, and manage your packages anywhere, anytime. Complete logistics solution in your pocket.
-                    </p>
-                    
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-center">
-                            <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center mr-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-                            <span class="text-lg">Easy and fast booking</span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center mr-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-                            <span class="text-lg">Real-time notifications</span>
-                        </div>
-                        <div class="flex items-center">
-                            <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center mr-4">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-                            <span class="text-lg">Offline tracking capability</span>
-                        </div>
-                    </div>
-                    
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#" class="flex items-center bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition-colors">
-                            <svg class="w-8 h-8 mr-3" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
-                            </svg>
-                            <div>
-                                <div class="text-xs">Download on the</div>
-                                <div class="text-lg font-semibold">App Store</div>
-                            </div>
-                        </a>
-                        <a href="#" class="flex items-center bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition-colors">
-                            <svg class="w-8 h-8 mr-3" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
-                            </svg>
-                            <div>
-                                <div class="text-xs">Get it on</div>
-                                <div class="text-lg font-semibold">Google Play</div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="relative">
-                    <div class="bg-white/10 rounded-3xl p-8 backdrop-blur-sm floating-animation">
-                        <div class="bg-white rounded-2xl p-6 shadow-2xl">
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="flex items-center">
-                                    <img src="{{ asset('favicon.svg') }}" alt="Daak Khana" class="w-8 h-8 rounded-lg mr-3">
-                                    <span class="font-bold text-gray-900">Daak Khana</span>
-                                </div>
-                                <div class="text-xs text-gray-500">9:41 AM</div>
-                            </div>
-                            <div class="space-y-3">
-                                <div class="bg-green-50 p-3 rounded-lg">
-                                    <div class="text-sm font-semibold text-gray-900">Your package has been shipped</div>
-                                    <div class="text-xs text-gray-600">Tracking: DK123456789</div>
-                                </div>
-                                <div class="bg-blue-50 p-3 rounded-lg">
-                                    <div class="text-sm font-semibold text-gray-900">Package out for delivery</div>
-                                    <div class="text-xs text-gray-600">Expected delivery: Today 3:00 PM</div>
-                                </div>
-                                <div class="bg-yellow-50 p-3 rounded-lg">
-                                    <div class="text-sm font-semibold text-gray-900">Delivery completed</div>
-                                    <div class="text-xs text-gray-600">Your package has been delivered</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<section class="py-24 bg-gradient-to-r from-green-600 to-green-800 text-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      
+      <!-- Left Content -->
+      <div>
+        <div class="inline-flex items-center px-4 py-2 bg-white/20 text-white rounded-full text-sm font-semibold mb-6">
+          Mobile App
         </div>
-    </section>    <!-- 
+        <h2 class="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+          Book Couriers from Your Phone
+        </h2>
+        <p class="text-lg lg:text-xl text-green-50 mb-8 leading-relaxed">
+          Download the Daak Khana mobile app and track, book, and manage your packages anywhere, anytime. A complete logistics solution in your pocket.
+        </p>
+
+        <!-- Features -->
+        <div class="space-y-4 mb-8">
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-white/30 rounded-lg flex items-center justify-center mr-4">
+              <span class="text-green-700 font-bold">✔</span>
+            </div>
+            <span class="text-lg">Easy and fast booking</span>
+          </div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-white/30 rounded-lg flex items-center justify-center mr-4">
+              <span class="text-green-700 font-bold">✔</span>
+            </div>
+            <span class="text-lg">Real-time notifications</span>
+          </div>
+          <div class="flex items-center">
+            <div class="w-8 h-8 bg-white/30 rounded-lg flex items-center justify-center mr-4">
+              <span class="text-green-700 font-bold">✔</span>
+            </div>
+            <span class="text-lg">Offline tracking capability</span>
+          </div>
+        </div>
+
+        <!-- App Store Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#" class="flex items-center bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-900 transition">
+            <svg class="w-8 h-8 mr-3" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+            </svg>
+            <div>
+              <div class="text-xs">Download on the</div>
+              <div class="text-lg font-semibold">App Store</div>
+            </div>
+          </a>
+          <a href="#" class="flex items-center bg-black text-white px-6 py-3 rounded-xl hover:bg-gray-900 transition">
+            <svg class="w-8 h-8 mr-3" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+            </svg>
+            <div>
+              <div class="text-xs">Get it on</div>
+              <div class="text-lg font-semibold">Google Play</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Phone Mockup -->
+      <div class="relative">
+        <div class="bg-white/20 rounded-3xl p-8 backdrop-blur-sm shadow-lg floating-animation">
+          <div class="bg-white rounded-2xl p-6 shadow-2xl">
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center">
+                <img src="{{ asset('favicon.svg') }}" alt="Daak Khana" class="w-8 h-8 rounded-lg mr-3">
+                <span class="font-bold text-gray-900">Daak Khana</span>
+              </div>
+              <div class="text-xs text-gray-500">9:41 AM</div>
+            </div>
+            <!-- Notifications -->
+            <div class="space-y-3">
+              <div class="bg-green-50 p-3 rounded-lg">
+                <div class="text-sm font-semibold text-gray-900">Your package has been shipped</div>
+                <div class="text-xs text-gray-600">Tracking: DK123456789</div>
+              </div>
+              <div class="bg-blue-50 p-3 rounded-lg">
+                <div class="text-sm font-semibold text-gray-900">Package out for delivery</div>
+                <div class="text-xs text-gray-600">Expected delivery: Today 3:00 PM</div>
+              </div>
+              <div class="bg-yellow-50 p-3 rounded-lg">
+                <div class="text-sm font-semibold text-gray-900">Delivery completed</div>
+                <div class="text-xs text-gray-600">Your package has been delivered</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- 
 11. FAQ Section -->
     <section class="py-24 bg-white">
         <div class="max-w-4xl mx-auto px-6 lg:px-8">
@@ -986,109 +956,125 @@
     </section>
 
     <!-- 12. Newsletter Section -->
-    <section class="py-24 gradient-bg text-white">
-        <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-            <div class="mb-8">
-                <h2 class="text-4xl lg:text-5xl font-bold mb-6">Stay Updated</h2>
-                <p class="text-xl text-green-100 max-w-2xl mx-auto">
-                    Subscribe to our newsletter for new services, special offers, and important updates about Pakistan's courier industry.
-                </p>
-            </div>
-            
-            <div class="max-w-md mx-auto">
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <input type="email" placeholder="Enter your email address" class="flex-1 px-6 py-4 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-white/20">
-                    <button class="bg-white text-green-600 px-8 py-4 rounded-xl font-semibold hover:bg-green-50 transition-colors">
-                        Subscribe
-                    </button>
-                </div>
-                <p class="text-sm text-green-100 mt-4">
-                    We respect your privacy and never share your information with third parties.
-                </p>
-            </div>
-        </div>
-    </section>
+<!-- Newsletter Section -->
+<section class="py-24 bg-gradient-to-r from-green-600 to-emerald-700 text-white">
+  <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+    <div class="mb-8">
+      <h2 class="text-4xl lg:text-5xl font-bold mb-6">Stay Updated</h2>
+      <p class="text-lg md:text-xl text-green-100 max-w-2xl mx-auto">
+        Subscribe to our newsletter for new services, special offers, and important updates about Pakistan's courier industry.
+      </p>
+    </div>
+    
+    <div class="max-w-md mx-auto">
+      <div class="flex flex-col sm:flex-row gap-4">
+        <input 
+          type="email" 
+          placeholder="Enter your email address" 
+          class="flex-1 px-6 py-4 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-green-300"
+        >
+        <button class="bg-white text-green-700 px-8 py-4 rounded-xl font-semibold hover:bg-green-50 transition">
+          Subscribe
+        </button>
+      </div>
+      <p class="text-sm text-green-100 mt-4">
+        We respect your privacy and never share your information with third parties.
+      </p>
+    </div>
+  </div>
+</section>
 
-    <!-- 13. Contact & Footer Section -->
-    <section id="contact" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <div class="inline-flex items-center px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-semibold mb-6 border border-green-200">
-                    Contact Us
-                </div>
-                <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Get in Touch</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Have questions or need assistance? Our dedicated support team is always ready to help you with your courier and logistics needs.
-                </p>
+<!-- Contact Section -->
+<section id="contact" class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-20">
+      <div class="inline-flex items-center px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-semibold mb-6 border border-green-200">
+        Contact Us
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Get in Touch</h2>
+      <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+        Have questions or need assistance? Our dedicated support team is always ready to help you with your courier and logistics needs.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- Contact Form -->
+      <div class="lg:col-span-2">
+        <div class="bg-gray-50 rounded-2xl p-8 shadow-sm">
+          <h3 class="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
+          <form class="space-y-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
+              </div>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div class="lg:col-span-2">
-                    <div class="bg-gray-50 rounded-2xl p-8">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
-                        <form class="space-y-6">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
-                                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                                    <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
-                                </div>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-                                <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                                <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"></textarea>
-                            </div>
-                            <button type="submit" class="w-full gradient-bg text-white py-4 rounded-xl font-semibold hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl">
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                
-                <div class="space-y-8">
-                    <div class="bg-white border border-gray-200 rounded-2xl p-6">
-                        <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Phone</h3>
-                        <p class="text-gray-600">+92-300-0000000</p>
-                        <p class="text-sm text-gray-500 mt-1">Available 24/7</p>
-                    </div>
-                    
-                    <div class="bg-white border border-gray-200 rounded-2xl p-6">
-                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Email</h3>
-                        <p class="text-gray-600">support@daakkhana.com</p>
-                        <p class="text-sm text-gray-500 mt-1">Response within 24 hours</p>
-                    </div>
-                    
-                    <div class="bg-white border border-gray-200 rounded-2xl p-6">
-                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Office</h3>
-                        <p class="text-gray-600">Karachi, Pakistan</p>
-                        <p class="text-sm text-gray-500 mt-1">9 AM to 6 PM</p>
-                    </div>
-                </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+              <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
             </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+              <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"></textarea>
+            </div>
+            
+            <button type="submit" class="w-full bg-gradient-to-r from-green-600 to-emerald-700 text-white py-4 rounded-xl font-semibold hover:opacity-90 transition shadow-lg hover:shadow-xl">
+              Send Message
+            </button>
+          </form>
         </div>
-    </section>
+      </div>
+      
+      <!-- Contact Info -->
+      <div class="space-y-8">
+        
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+          <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Phone</h3>
+          <p class="text-gray-600">+92-333-8107788</p>
+          <p class="text-sm text-gray-500 mt-1">Available 24/7</p>
+        </div>
+        
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Email</h3>
+          <p class="text-gray-600">shazabjamildhami@gmail.com</p>
+          <p class="text-sm text-gray-500 mt-1">Response within 24 hours</p>
+        </div>
+        
+        <div class="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
+          <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Office</h3>
+          <p class="text-gray-600">Gujranwala, Pakistan</p>
+          <p class="text-sm text-gray-500 mt-1">9 AM to 6 PM</p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-16">
