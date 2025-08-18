@@ -207,7 +207,10 @@
                     
                     <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl mb-6">
                         Streamline Your
-                        <span class="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent"> Logistics</span>
+                        <span class="bg-gradient-to-r from-green-600 to-green-500 bg-clip-text text-transparent">
+  Logistics
+</span>
+
                         <span class="block text-muted-foreground text-3xl sm:text-4xl lg:text-5xl font-normal mt-2">Across Pakistan</span>
                     </h1>
                     
