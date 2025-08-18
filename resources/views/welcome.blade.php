@@ -618,9 +618,10 @@
           <li class="flex items-center"><span class="text-green-500 mr-3">✔</span> AI Assistant</li>
           <li class="flex items-center"><span class="text-green-500 mr-3">✔</span> Notifications</li>
         </ul>
-        <button class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 rounded-xl font-semibold transition-colors">
+        <a href="{{ route('register') }}" 
+           class="block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 rounded-xl font-semibold transition-colors">
           Get Started Free
-        </button>
+        </a>
       </div>
 
       <!-- Pro Plan -->
@@ -639,9 +640,10 @@
           <li class="flex items-center"><span class="text-yellow-300 mr-3">✔</span> Pro Badge</li>
           <li class="flex items-center"><span class="text-yellow-300 mr-3">✔</span> Higher Rankings</li>
         </ul>
-        <button class="w-full bg-white text-green-700 py-3 rounded-xl font-semibold hover:bg-green-50 transition-colors">
+        <a href="{{ route('register') }}" 
+           class="block w-full text-center bg-white text-green-700 py-3 rounded-xl font-semibold hover:bg-green-50 transition-colors">
           Upgrade to Pro
-        </button>
+        </a>
       </div>
     </div>
   </div>
