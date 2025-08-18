@@ -1,70 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gradient-to-br from-white via-green-50/30 to-white min-h-screen flex items-center justify-center">
+<x-guest-layout>
+    <div class="space-y-6">
+        <!-- Header -->
+        <div class="text-center">
+            <h1 class="heading-3">Welcome back</h1>
+            <p class="text-muted mt-2">Sign in to your account to continue</p>
+        </div>
 
-    <div class="w-full max-w-md bg-white shadow-lg rounded-2xl p-8">
-        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Login to Your Account</h2>
+        <!-- Session Status -->
+        <x-auth-session-status class="mb-4" :status="session('status')" />
 
         <!-- Login Form -->
         <form method="POST" action="{{ route('login') }}" class="space-y-5">
             @csrf
 
-            <!-- Email -->
-            <div>
-                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
-                    class="mt-1 block w-full px-4 py-2 border rounded-xl shadow-sm focus:ring-2 focus:ring-green-400 focus:outline-none border-gray-300">
-                @error('email')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                @enderror
+            <!-- Email Address -->
+            <div class="form-group">
+                <label for="email" class="form-label">{{ __('Email') }}</label>
+                <input id="email" 
+                       class="form-input" 
+                       type="email" 
+                       name="email" 
+                       value="{{ old('email') }}" 
+                       required 
+                       autofocus 
+                       autocomplete="username"
+                       placeholder="Enter your email address" />
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
             <!-- Password -->
-            <div>
-                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                <input id="password" type="password" name="password" required
-                    class="mt-1 block w-full px-4 py-2 border rounded-xl shadow-sm focus:ring-2 focus:ring-green-400 focus:outline-none border-gray-300">
-                @error('password')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                @enderror
+            <div class="form-group">
+                <label for="password" class="form-label">{{ __('Password') }}</label>
+                <input id="password" 
+                       class="form-input"
+                       type="password"
+                       name="password"
+                       required 
+                       autocomplete="current-password"
+                       placeholder="Enter your password" />
+                <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
-            <!-- Remember Me -->
+            <!-- Remember Me & Forgot Password -->
             <div class="flex items-center justify-between">
-                <label class="flex items-center">
-                    <input type="checkbox" name="remember" class="h-4 w-4 text-green-500 rounded">
-                    <span class="ml-2 text-sm text-gray-600">Remember Me</span>
+                <label for="remember_me" class="inline-flex items-center">
+                    <input id="remember_me" 
+                           type="checkbox" 
+                           class="form-checkbox" 
+                           name="remember">
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
 
                 @if (Route::has('password.request'))
-                    <a href="{{ route('password.request') }}" class="text-sm text-green-600 hover:underline">
-                        Forgot Password?
+                    <a class="text-sm text-primary-600 hover:text-primary-700 transition-colors" 
+                       href="{{ route('password.request') }}">
+                        {{ __('Forgot your password?') }}
                     </a>
                 @endif
             </div>
 
             <!-- Submit Button -->
-            <button type="submit"
-                class="w-full py-2 px-4 bg-green-600 text-white rounded-xl hover:bg-green-700 transition shadow-md">
-                Login
+            <button type="submit" class="btn-primary w-full">
+                {{ __('Sign in') }}
             </button>
         </form>
 
-        <!-- Register -->
+        <!-- Divider -->
+        <div class="relative">
+            <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-gray-300"></div>
+            </div>
+            <div class="relative flex justify-center text-sm">
+                <span class="px-2 bg-white text-gray-500">{{ __('New to our platform?') }}</span>
+            </div>
+        </div>
+
+        <!-- Register Link -->
         @if (Route::has('register'))
-            <p class="mt-6 text-center text-gray-600 text-sm">
-                Don’t have an account?
-                <a href="{{ route('register') }}" class="text-green-600 font-medium hover:underline">Register</a>
-            </p>
+            <div class="text-center">
+                <p class="text-sm text-gray-600">
+                    {{ __('Don\'t have an account?') }}
+                    <a href="{{ route('register') }}" 
+                       class="font-medium text-primary-600 hover:text-primary-700 transition-colors">
+                        {{ __('Create account') }}
+                    </a>
+                </p>
+            </div>
         @endif
     </div>
-
-</body>
-</html>
+</x-guest-layout>

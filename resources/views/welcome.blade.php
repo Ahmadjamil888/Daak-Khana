@@ -107,6 +107,26 @@
                 }
             }
         }
+        
+        /* Custom CSS */
+        .gradient-bg {
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </script>
 </head>
 <body class="font-sans antialiased bg-background min-h-screen">
@@ -317,143 +337,143 @@
         </div>
     </section>
 
-    <!-- 2. Trust Indicators -->
-    <section class="py-16 bg-white border-b border-gray-100">
+    <!-- Trust Indicators -->
+    <section class="py-16 bg-muted/30">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-12">
-                <p class="text-gray-600 font-medium">Trusted by Pakistan's leading courier companies</p>
+                <p class="text-muted-foreground font-medium">Trusted by Pakistan's leading courier companies</p>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center">
                 <div class="flex justify-center">
-                    <div class="bg-red-100 text-red-700 px-6 py-3 rounded-lg font-bold text-xl">TCS</div>
+                    <div class="bg-card border border-border text-foreground px-6 py-3 rounded-lg font-bold text-lg shadow-sm hover:shadow-md transition-shadow">TCS</div>
                 </div>
                 <div class="flex justify-center">
-                    <div class="bg-blue-100 text-blue-700 px-6 py-3 rounded-lg font-bold text-xl">Leopards</div>
+                    <div class="bg-card border border-border text-foreground px-6 py-3 rounded-lg font-bold text-lg shadow-sm hover:shadow-md transition-shadow">Leopards</div>
                 </div>
                 <div class="flex justify-center">
-                    <div class="bg-green-100 text-green-700 px-6 py-3 rounded-lg font-bold text-xl">M&P</div>
+                    <div class="bg-card border border-border text-foreground px-6 py-3 rounded-lg font-bold text-lg shadow-sm hover:shadow-md transition-shadow">M&P</div>
                 </div>
                 <div class="flex justify-center">
-                    <div class="bg-purple-100 text-purple-700 px-6 py-3 rounded-lg font-bold text-xl">Blue EX</div>
+                    <div class="bg-card border border-border text-foreground px-6 py-3 rounded-lg font-bold text-lg shadow-sm hover:shadow-md transition-shadow">Blue EX</div>
                 </div>
                 <div class="flex justify-center">
-                    <div class="bg-orange-100 text-orange-700 px-6 py-3 rounded-lg font-bold text-xl">Call Courier</div>
+                    <div class="bg-card border border-border text-foreground px-6 py-3 rounded-lg font-bold text-lg shadow-sm hover:shadow-md transition-shadow">Call Courier</div>
                 </div>
                 <div class="flex justify-center">
-                    <div class="bg-indigo-100 text-indigo-700 px-6 py-3 rounded-lg font-bold text-xl">Trax</div>
+                    <div class="bg-card border border-border text-foreground px-6 py-3 rounded-lg font-bold text-lg shadow-sm hover:shadow-md transition-shadow">Trax</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. Services Section -->
-    <section id="services" class="py-24 bg-gradient-to-b from-gray-50 to-white">
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-background">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-20">
-                <div class="inline-flex items-center px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-semibold mb-6 border border-green-200">
+                <div class="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-6 border border-primary/20">
                     Our Services
                 </div>
-                <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Complete Courier Solutions</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                <h2 class="text-4xl lg:text-5xl font-bold text-foreground mb-6">Complete Courier Solutions</h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
                     From same-day delivery to international shipping, we provide comprehensive logistics solutions tailored to your needs.
                 </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="group bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <div class="group bg-card border border-border rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-16 h-16 bg-red-500 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">Same Day Delivery</h3>
-                    <p class="text-gray-600 text-center leading-relaxed mb-4">Ultra-fast delivery service for urgent packages. Get your items delivered within hours across major cities in Pakistan.</p>
+                    <h3 class="text-xl font-bold text-card-foreground mb-4 text-center">Same Day Delivery</h3>
+                    <p class="text-muted-foreground text-center leading-relaxed mb-4">Ultra-fast delivery service for urgent packages. Get your items delivered within hours across major cities in Pakistan.</p>
                     <div class="text-center">
-                        <span class="text-sm text-green-600 font-semibold bg-green-50 px-3 py-1 rounded-full">From Rs. 300</span>
+                        <span class="text-sm text-primary font-semibold bg-primary/10 px-3 py-1 rounded-full border border-primary/20">From Rs. 300</span>
                     </div>
                 </div>
                 
-                <div class="group bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <div class="group bg-card border border-border rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-16 h-16 bg-blue-500 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">Express Shipping</h3>
-                    <p class="text-gray-600 text-center leading-relaxed mb-4">Fast delivery with next-day guarantee. Perfect balance of speed and affordability for regular shipments.</p>
+                    <h3 class="text-xl font-bold text-card-foreground mb-4 text-center">Express Shipping</h3>
+                    <p class="text-muted-foreground text-center leading-relaxed mb-4">Fast delivery with next-day guarantee. Perfect balance of speed and affordability for regular shipments.</p>
                     <div class="text-center">
-                        <span class="text-sm text-green-600 font-semibold bg-green-50 px-3 py-1 rounded-full">From Rs. 150</span>
+                        <span class="text-sm text-primary font-semibold bg-primary/10 px-3 py-1 rounded-full border border-primary/20">From Rs. 150</span>
                     </div>
                 </div>
                 
-                <div class="group bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="group bg-card border border-border rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-primary-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">International Shipping</h3>
-                    <p class="text-gray-600 text-center leading-relaxed mb-4">Global shipping solutions connecting Pakistan with the world. Secure international delivery with full tracking.</p>
+                    <h3 class="text-xl font-bold text-card-foreground mb-4 text-center">International Shipping</h3>
+                    <p class="text-muted-foreground text-center leading-relaxed mb-4">Global shipping solutions connecting Pakistan with the world. Secure international delivery with full tracking.</p>
                     <div class="text-center">
-                        <span class="text-sm text-green-600 font-semibold bg-green-50 px-3 py-1 rounded-full">From Rs. 2500</span>
+                        <span class="text-sm text-primary font-semibold bg-primary/10 px-3 py-1 rounded-full border border-primary/20">From Rs. 2500</span>
                     </div>
                 </div>
                 
-                <div class="group bg-white rounded-2xl p-8 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                <div class="group bg-card border border-border rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-16 h-16 bg-purple-500 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">Bulk Orders</h3>
-                    <p class="text-gray-600 text-center leading-relaxed mb-4">Enterprise solutions for businesses with high-volume shipping needs. Customized pricing and dedicated support.</p>
+                    <h3 class="text-xl font-bold text-card-foreground mb-4 text-center">Bulk Orders</h3>
+                    <p class="text-muted-foreground text-center leading-relaxed mb-4">Enterprise solutions for businesses with high-volume shipping needs. Customized pricing and dedicated support.</p>
                     <div class="text-center">
-                        <span class="text-sm text-green-600 font-semibold bg-green-50 px-3 py-1 rounded-full">Custom Pricing</span>
+                        <span class="text-sm text-primary font-semibold bg-primary/10 px-3 py-1 rounded-full border border-primary/20">Custom Pricing</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>    
-<!-- 4. How It Works Section -->
-    <section id="how-it-works" class="py-24 bg-white">
+<!-- How It Works Section -->
+    <section id="how-it-works" class="py-24 bg-muted/30">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-20">
-                <div class="inline-flex items-center px-4 py-2 bg-green-50 text-green-700 rounded-full text-sm font-semibold mb-6 border border-green-200">
+                <div class="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-6 border border-primary/20">
                     How It Works
                 </div>
-                <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Simple and Fast Process</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                <h2 class="text-4xl lg:text-5xl font-bold text-foreground mb-6">Simple and Fast Process</h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
                     Send your packages in just three easy steps. Our streamlined process ensures quick booking, secure payment, and reliable delivery.
                 </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div class="text-center relative">
-                    <div class="w-24 h-24 gradient-bg rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-lg">
-                        <span class="text-3xl font-bold text-white">1</span>
+                    <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
+                        <span class="text-3xl font-bold text-primary-foreground">1</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Search & Compare</h3>
-                    <p class="text-gray-600 leading-relaxed">Browse courier companies, compare services and prices, and choose the best option that fits your delivery requirements and budget.</p>
+                    <h3 class="text-2xl font-bold text-foreground mb-4">Search & Compare</h3>
+                    <p class="text-muted-foreground leading-relaxed">Browse courier companies, compare services and prices, and choose the best option that fits your delivery requirements and budget.</p>
                     
-                    <div class="hidden md:block absolute top-12 left-full w-12 h-0.5 bg-gradient-to-r from-green-300 to-transparent"></div>
+                    <div class="hidden md:block absolute top-12 left-full w-12 h-0.5 bg-gradient-to-r from-primary/30 to-transparent"></div>
                 </div>
                 
                 <div class="text-center relative">
-                    <div class="w-24 h-24 gradient-bg rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-lg">
-                        <span class="text-3xl font-bold text-white">2</span>
+                    <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
+                        <span class="text-3xl font-bold text-primary-foreground">2</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Book & Pay</h3>
-                    <p class="text-gray-600 leading-relaxed">Select your preferred courier, provide delivery details, and make secure payment through multiple convenient payment methods.</p>
+                    <h3 class="text-2xl font-bold text-foreground mb-4">Book & Pay</h3>
+                    <p class="text-muted-foreground leading-relaxed">Select your preferred courier, provide delivery details, and make secure payment through multiple convenient payment methods.</p>
                     
-                    <div class="hidden md:block absolute top-12 left-full w-12 h-0.5 bg-gradient-to-r from-green-300 to-transparent"></div>
+                    <div class="hidden md:block absolute top-12 left-full w-12 h-0.5 bg-gradient-to-r from-primary/30 to-transparent"></div>
                 </div>
                 
                 <div class="text-center">
-                    <div class="w-24 h-24 gradient-bg rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-lg">
-                        <span class="text-3xl font-bold text-white">3</span>
+                    <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
+                        <span class="text-3xl font-bold text-primary-foreground">3</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Track & Receive</h3>
-                    <p class="text-gray-600 leading-relaxed">Track your package in real-time and receive notifications until successful delivery. Full transparency throughout the process.</p>
+                    <h3 class="text-2xl font-bold text-foreground mb-4">Track & Receive</h3>
+                    <p class="text-muted-foreground leading-relaxed">Track your package in real-time and receive notifications until successful delivery. Full transparency throughout the process.</p>
                 </div>
             </div>
         </div>
