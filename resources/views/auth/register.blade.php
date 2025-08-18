@@ -1,44 +1,46 @@
 <x-guest-layout>
-    <div class="space-y-6">
+    <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-8 space-y-8">
+        
         <!-- Header -->
         <div class="text-center">
-            <h1 class="heading-3">Create your account</h1>
-            <p class="text-muted mt-2">Join Pakistan's premier courier service platform</p>
+            <h1 class="text-3xl font-bold text-gray-900">Create your account 🚀</h1>
+            <p class="mt-2 text-gray-600">Join Pakistan's premier courier service platform</p>
         </div>
 
         <!-- Register Form -->
-        <form method="POST" action="{{ route('register') }}" class="space-y-5">
+        <form method="POST" action="{{ route('register') }}" class="space-y-6">
             @csrf
 
             <!-- User Type Selection -->
-            <div class="form-group">
-                <label class="form-label">{{ __('Account Type') }}</label>
-                <div class="grid grid-cols-1 gap-3 mt-2">
-                    <!-- Customer Option -->
-                    <label class="relative flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-primary-50 transition-colors has-[:checked]:border-primary-500 has-[:checked]:bg-primary-50">
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Account Type</label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
+                    
+                    <!-- Customer -->
+                    <label class="relative flex items-center p-4 border rounded-xl cursor-pointer transition-all 
+                                 hover:border-green-500 hover:bg-green-50 has-[:checked]:border-green-600 has-[:checked]:bg-green-50">
                         <input type="radio" 
                                name="user_type" 
                                value="customer"
-                               class="form-radio"
-                               {{ old('user_type') === 'customer' ? 'checked' : '' }} 
-                               required>
-                        <div class="ml-3">
-                            <div class="font-medium text-gray-900">{{ __('Customer') }}</div>
-                            <div class="text-sm text-gray-500">{{ __('I need delivery services') }}</div>
+                               class="hidden peer"
+                               {{ old('user_type') === 'customer' ? 'checked' : '' }} required>
+                        <div class="ml-1">
+                            <div class="font-medium text-gray-900">Customer</div>
+                            <div class="text-sm text-gray-500">I need delivery services</div>
                         </div>
                     </label>
 
-                    <!-- Courier Option -->
-                    <label class="relative flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-primary-50 transition-colors has-[:checked]:border-primary-500 has-[:checked]:bg-primary-50">
+                    <!-- Courier -->
+                    <label class="relative flex items-center p-4 border rounded-xl cursor-pointer transition-all 
+                                 hover:border-green-500 hover:bg-green-50 has-[:checked]:border-green-600 has-[:checked]:bg-green-50">
                         <input type="radio" 
                                name="user_type" 
                                value="courier"
-                               class="form-radio"
-                               {{ old('user_type') === 'courier' ? 'checked' : '' }} 
-                               required>
-                        <div class="ml-3">
-                            <div class="font-medium text-gray-900">{{ __('Courier Company') }}</div>
-                            <div class="text-sm text-gray-500">{{ __('I provide delivery services') }}</div>
+                               class="hidden peer"
+                               {{ old('user_type') === 'courier' ? 'checked' : '' }} required>
+                        <div class="ml-1">
+                            <div class="font-medium text-gray-900">Courier Company</div>
+                            <div class="text-sm text-gray-500">I provide delivery services</div>
                         </div>
                     </label>
                 </div>
@@ -46,93 +48,104 @@
             </div>
 
             <!-- Name -->
-            <div class="form-group">
-                <label for="name" class="form-label">{{ __('Full Name') }}</label>
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
                 <input id="name" 
-                       class="form-input" 
                        type="text" 
                        name="name" 
                        value="{{ old('name') }}" 
                        required 
                        autofocus 
                        autocomplete="name"
-                       placeholder="Enter your full name" />
+                       placeholder="Enter your full name"
+                       class="mt-2 w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm 
+                              focus:ring-2 focus:ring-green-500 focus:border-green-500 
+                              placeholder-gray-400 text-gray-900" />
                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
             </div>
 
             <!-- Email -->
-            <div class="form-group">
-                <label for="email" class="form-label">{{ __('Email Address') }}</label>
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
                 <input id="email" 
-                       class="form-input" 
                        type="email" 
                        name="email" 
                        value="{{ old('email') }}" 
                        required 
                        autocomplete="email"
-                       placeholder="Enter your email address" />
+                       placeholder="Enter your email address"
+                       class="mt-2 w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm 
+                              focus:ring-2 focus:ring-green-500 focus:border-green-500 
+                              placeholder-gray-400 text-gray-900" />
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
             <!-- Phone -->
-            <div class="form-group">
-                <label for="phone" class="form-label">{{ __('Phone Number') }}</label>
+            <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
                 <input id="phone" 
-                       class="form-input" 
                        type="tel" 
                        name="phone" 
                        value="{{ old('phone') }}" 
                        required 
                        autocomplete="tel"
-                       placeholder="03XX-XXXXXXX" />
+                       placeholder="03XX-XXXXXXX"
+                       class="mt-2 w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm 
+                              focus:ring-2 focus:ring-green-500 focus:border-green-500 
+                              placeholder-gray-400 text-gray-900" />
                 <x-input-error :messages="$errors->get('phone')" class="mt-2" />
             </div>
 
             <!-- Password -->
-            <div class="form-group">
-                <label for="password" class="form-label">{{ __('Password') }}</label>
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                 <input id="password" 
-                       class="form-input"
                        type="password"
                        name="password"
                        required 
                        autocomplete="new-password"
-                       placeholder="Minimum 8 characters" />
+                       placeholder="Minimum 8 characters"
+                       class="mt-2 w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm 
+                              focus:ring-2 focus:ring-green-500 focus:border-green-500 
+                              placeholder-gray-400 text-gray-900" />
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
             <!-- Confirm Password -->
-            <div class="form-group">
-                <label for="password_confirmation" class="form-label">{{ __('Confirm Password') }}</label>
+            <div>
+                <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Confirm Password</label>
                 <input id="password_confirmation" 
-                       class="form-input"
                        type="password"
                        name="password_confirmation"
                        required 
                        autocomplete="new-password"
-                       placeholder="Confirm your password" />
+                       placeholder="Confirm your password"
+                       class="mt-2 w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm 
+                              focus:ring-2 focus:ring-green-500 focus:border-green-500 
+                              placeholder-gray-400 text-gray-900" />
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
             </div>
 
-            <!-- Terms & Privacy -->
-            <div class="form-group">
-                <label class="inline-flex items-start">
-                    <input type="checkbox" 
-                           class="form-checkbox mt-0.5" 
-                           name="terms" 
-                           required>
-                    <span class="ml-2 text-sm text-gray-600">
-                        {{ __('I agree to the') }} 
-                        <a href="#" class="text-primary-600 hover:text-primary-700 transition-colors">{{ __('Terms of Service') }}</a>
-                        {{ __('and') }}
-                        <a href="#" class="text-primary-600 hover:text-primary-700 transition-colors">{{ __('Privacy Policy') }}</a>
-                    </span>
-                </label>
+            <!-- Terms -->
+            <div class="flex items-start">
+                <input type="checkbox" 
+                       class="h-4 w-4 text-green-600 border-gray-300 rounded focus:ring-green-500 mt-1" 
+                       name="terms" 
+                       required>
+                <span class="ml-2 text-sm text-gray-600">
+                    I agree to the 
+                    <a href="#" class="text-green-600 hover:text-green-700">Terms of Service</a> 
+                    and 
+                    <a href="#" class="text-green-600 hover:text-green-700">Privacy Policy</a>.
+                </span>
             </div>
 
             <!-- Submit Button -->
-            <button type="submit" class="btn-primary w-full">
-                {{ __('Create Account') }}
+            <button type="submit" 
+                    class="w-full py-3 px-4 bg-green-600 text-white text-base font-semibold rounded-xl 
+                           shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 
+                           focus:ring-green-500 transition-all">
+                Create Account
             </button>
         </form>
 
@@ -142,17 +155,17 @@
                 <div class="w-full border-t border-gray-300"></div>
             </div>
             <div class="relative flex justify-center text-sm">
-                <span class="px-2 bg-white text-gray-500">{{ __('Already have an account?') }}</span>
+                <span class="px-3 bg-white text-gray-500">Already have an account?</span>
             </div>
         </div>
 
         <!-- Login Link -->
         <div class="text-center">
             <p class="text-sm text-gray-600">
-                {{ __('Already registered?') }}
+                Already registered?
                 <a href="{{ route('login') }}" 
-                   class="font-medium text-primary-600 hover:text-primary-700 transition-colors">
-                    {{ __('Sign in') }}
+                   class="font-medium text-green-600 hover:text-green-700 transition-colors">
+                    Sign in
                 </a>
             </p>
         </div>
