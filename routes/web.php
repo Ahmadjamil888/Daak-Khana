@@ -38,24 +38,38 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::middleware(['auth', 'verified'])->prefix('courier')->name('courier.')->group(function () {
     Route::get('/dashboard', [CourierDashboard::class, 'index'])->name('dashboard');
     
-    // Company management
+    // Company management (no restrictions)
     Route::get('/company/create', [CourierCompanyController::class, 'create'])->name('company.create');
     Route::post('/company', [CourierCompanyController::class, 'store'])->name('company.store');
     Route::get('/company/profile', [CourierCompanyController::class, 'profile'])->name('company.profile');
     Route::get('/company/edit', [CourierCompanyController::class, 'edit'])->name('company.edit');
     Route::patch('/company/profile', [CourierCompanyController::class, 'update'])->name('company.update');
     
-    // Services management
-    Route::resource('services', \App\Http\Controllers\Courier\CourierServiceController::class);
-    Route::patch('/services/{service}/toggle', [\App\Http\Controllers\Courier\CourierServiceController::class, 'toggle'])->name('services.toggle');
+    // Commission Management (requires courier company)
+    Route::middleware(['courier.company'])->group(function () {
+        Route::get('/commissions', [\App\Http\Controllers\CommissionPaymentController::class, 'index'])->name('commissions.index');
+        Route::get('/commissions/{commission}', [\App\Http\Controllers\CommissionPaymentController::class, 'show'])->name('commissions.show');
+        Route::post('/commissions/payment-intent', [\App\Http\Controllers\CommissionPaymentController::class, 'createPaymentIntent'])->name('commissions.payment-intent');
+        Route::post('/commissions/confirm-payment', [\App\Http\Controllers\CommissionPaymentController::class, 'confirmPayment'])->name('commissions.confirm-payment');
+        Route::get('/commissions/payment-form', [\App\Http\Controllers\CommissionPaymentController::class, 'paymentForm'])->name('commissions.payment-form');
+        Route::get('/commissions/pay-all', [\App\Http\Controllers\CommissionPaymentController::class, 'payAll'])->name('commissions.pay-all');
+    });
     
-    // Bookings management
-    Route::get('/bookings', function() { 
-        $company = auth()->user()->courierCompany;
-        $bookings = $company ? $company->bookings()->with(['customer', 'courierService'])->latest()->paginate(15) : collect();
-        return view('courier.bookings.index', compact('bookings')); 
-    })->name('bookings');
-    Route::patch('/bookings/{booking}/update-status', [BookingController::class, 'updateStatus'])->name('bookings.update-status');
+    // Services management (requires courier company and commission check)
+    Route::middleware(['courier.company', 'commission.check'])->group(function () {
+        Route::resource('services', \App\Http\Controllers\Courier\CourierServiceController::class);
+        Route::patch('/services/{service}/toggle', [\App\Http\Controllers\Courier\CourierServiceController::class, 'toggle'])->name('services.toggle');
+    });
+    
+    // Bookings management (requires courier company and commission check)
+    Route::middleware(['courier.company', 'commission.check'])->group(function () {
+        Route::get('/bookings', function() { 
+            $company = auth()->user()->courierCompany;
+            $bookings = $company ? $company->bookings()->with(['customer', 'courierService'])->latest()->paginate(15) : collect();
+            return view('courier.bookings.index', compact('bookings')); 
+        })->name('bookings');
+        Route::patch('/bookings/{booking}/update-status', [BookingController::class, 'updateStatus'])->name('bookings.update-status');
+    });
 });
 
 // Public routes (accessible without auth)

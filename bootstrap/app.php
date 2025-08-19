@@ -13,6 +13,8 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'courier.pro.check' => \App\Http\Middleware\CourierProCheck::class,
+            'courier.company' => \App\Http\Middleware\EnsureCourierCompany::class,
+            'commission.check' => \App\Http\Middleware\CheckCommissionRestriction::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\CourierCompany;
 use App\Models\CourierService;
+use App\Services\CommissionService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 
 class BookingController extends Controller
 {
@@ -137,6 +139,18 @@ class BookingController extends Controller
                 ]
             ],
         ]);
+
+        // Automatically deduct 5% commission from the booking
+        try {
+            $commissionService = app(CommissionService::class);
+            $commissionService->deductCommissionFromBooking($booking);
+        } catch (\Exception $e) {
+            Log::error('Failed to deduct commission from booking', [
+                'booking_id' => $booking->id,
+                'error' => $e->getMessage()
+            ]);
+            // Don't fail the booking creation if commission deduction fails
+        }
 
         return redirect()->route('bookings.show', $booking)
             ->with('success', 'Booking created successfully! Booking number: ' . $booking->booking_number);
