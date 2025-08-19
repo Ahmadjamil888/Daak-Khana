@@ -141,7 +141,8 @@ class CourierCompany extends Model
             return null;
         }
         
-        $days = $next_due->due_date->diffInDays(now(), false);
+        // Days remaining until the earliest pending commission is due
+        $days = now()->diffInDays($next_due->due_date, false);
         return max(0, $days);
     }
 
