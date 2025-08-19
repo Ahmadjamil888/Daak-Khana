@@ -139,7 +139,7 @@
       <!-- Logo -->
       <div class="flex items-center">
         <div class="flex-shrink-0 flex items-center">
-          <img src="/public/mylogo.png" alt="Daak Khana Logo" class="h-8 w-8 object-contain">
+          <img src="https://raw.githubusercontent.com/Ahmadjamil888/Daak-Khana/refs/heads/main/public/mylogo.png" alt="Daak Khana Logo" class="h-8 w-8 object-contain">
           <span class="ml-2 text-xl font-bold text-foreground">Daak Khana</span>
         </div>
 
