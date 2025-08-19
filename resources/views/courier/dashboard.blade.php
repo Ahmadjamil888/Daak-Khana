@@ -66,7 +66,7 @@
                             </div>
                             <div class="ml-4">
                                 <p class="text-sm font-medium text-neutral-600">Revenue</p>
-                                <p class="text-2xl font-semibold text-neutral-900">${{ number_format($company->bookings()->sum('total_amount'), 2) }}</p>
+                                <p class="text-2xl font-semibold text-neutral-900">Rs. {{ number_format($company->bookings()->sum('total_amount'), 0) }}</p>
                             </div>
                         </div>
                     </div>
@@ -183,7 +183,7 @@
                                                 </span>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">
-                                                ${{ number_format($booking->total_amount, 2) }}
+                                                {{ $booking->formatted_total_amount }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">
                                                 {{ $booking->created_at->format('M d, Y') }}

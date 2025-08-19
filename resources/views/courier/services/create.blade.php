@@ -66,12 +66,12 @@
                         <!-- Pricing and Delivery -->
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                             <div>
-                                <label for="price" class="block text-sm font-medium text-neutral-700 mb-2">Price ($)</label>
+                                <label for="price" class="block text-sm font-medium text-neutral-700 mb-2">Price (PKR)</label>
                                 <input type="number" 
                                        name="price" 
                                        id="price"
                                        value="{{ old('price') }}"
-                                       step="0.01"
+                                       step="1"
                                        min="0"
                                        class="w-full rounded-lg border-neutral-300 focus:border-primary-500 focus:ring-primary-500"
                                        required>

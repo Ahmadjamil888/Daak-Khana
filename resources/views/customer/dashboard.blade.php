@@ -100,7 +100,7 @@
                                                 </span>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">
-                                                ${{ number_format($booking->total_amount, 2) }}
+                                                {{ $booking->formatted_total_amount }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">
                                                 {{ $booking->created_at->format('M d, Y') }}

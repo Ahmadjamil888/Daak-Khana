@@ -66,12 +66,12 @@
                         <!-- Pricing -->
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                             <div>
-                                <label for="base_price" class="block text-sm font-medium text-neutral-700 mb-2">Base Price ($)</label>
+                                <label for="base_price" class="block text-sm font-medium text-neutral-700 mb-2">Base Price (PKR)</label>
                                 <input type="number" 
                                        name="base_price" 
                                        id="base_price"
                                        value="{{ old('base_price') }}"
-                                       step="0.01"
+                                       step="1"
                                        min="0"
                                        class="w-full rounded-lg border-neutral-300 focus:border-primary-500 focus:ring-primary-500"
                                        required>
@@ -81,23 +81,23 @@
                             </div>
 
                             <div>
-                                <label for="per_km" class="block text-sm font-medium text-neutral-700 mb-2">Per KM ($)</label>
+                                <label for="per_km" class="block text-sm font-medium text-neutral-700 mb-2">Per KM (PKR)</label>
                                 <input type="number" 
                                        name="per_km" 
                                        id="per_km"
-                                       value="{{ old('per_km', '0.50') }}"
-                                       step="0.01"
+                                       value="{{ old('per_km', '25') }}"
+                                       step="1"
                                        min="0"
                                        class="w-full rounded-lg border-neutral-300 focus:border-primary-500 focus:ring-primary-500">
                             </div>
 
                             <div>
-                                <label for="per_kg" class="block text-sm font-medium text-neutral-700 mb-2">Per KG ($)</label>
+                                <label for="per_kg" class="block text-sm font-medium text-neutral-700 mb-2">Per KG (PKR)</label>
                                 <input type="number" 
                                        name="per_kg" 
                                        id="per_kg"
-                                       value="{{ old('per_kg', '0.25') }}"
-                                       step="0.01"
+                                       value="{{ old('per_kg', '15') }}"
+                                       step="1"
                                        min="0"
                                        class="w-full rounded-lg border-neutral-300 focus:border-primary-500 focus:ring-primary-500">
                             </div>
@@ -141,7 +141,7 @@
                                        name="insurance_details" 
                                        id="insurance_details"
                                        value="{{ old('insurance_details') }}"
-                                       placeholder="e.g., Insured up to $10,000"
+                                       placeholder="e.g., Insured up to Rs. 500,000"
                                        class="w-full rounded-lg border-neutral-300 focus:border-primary-500 focus:ring-primary-500">
                                 @error('insurance_details')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>

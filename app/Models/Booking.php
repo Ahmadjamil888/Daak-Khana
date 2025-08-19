@@ -79,4 +79,38 @@ class Booking extends Model
     {
         return $this->hasOne(RealTimeLocation::class)->latest();
     }
+
+    /**
+     * Get formatted total amount with currency
+     */
+    public function getFormattedTotalAmountAttribute()
+    {
+        $currency = $this->courierService ? $this->courierService->effective_currency : 'PKR';
+        return $this->getCurrencySymbol($currency) . ' ' . number_format($this->total_amount, 0);
+    }
+
+    /**
+     * Get formatted pro fee with currency
+     */
+    public function getFormattedProFeeAttribute()
+    {
+        if (!$this->pro_fee) return null;
+        $currency = $this->courierService ? $this->courierService->effective_currency : 'PKR';
+        return $this->getCurrencySymbol($currency) . ' ' . number_format($this->pro_fee, 0);
+    }
+
+    /**
+     * Get currency symbol
+     */
+    private function getCurrencySymbol($currency)
+    {
+        $symbols = [
+            'PKR' => 'Rs.',
+            'USD' => '$',
+            'EUR' => '€',
+            'GBP' => '£',
+        ];
+        
+        return $symbols[$currency] ?? $currency;
+    }
 }
