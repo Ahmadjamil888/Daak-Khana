@@ -16,7 +16,7 @@
     <meta property="og:type" content="website">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('public/mylogo.png') }}">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,243 +131,215 @@
 </head>
 <body class="font-sans antialiased bg-background min-h-screen">
     <!-- Navigation -->
-    <nav class="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50" x-data="{ mobileMenuOpen: false }">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <div class="h-8 w-8 bg-primary text-primary-foreground rounded-md flex items-center justify-center">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-                            </svg>
-                        </div>
-                        <span class="ml-2 text-xl font-bold text-foreground">Daak Khana</span>
-                    </div>
-                    
-                    <!-- Desktop Navigation -->
-                    <nav class="hidden md:ml-10 md:flex md:space-x-8">
-                        <a href="#services" class="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-accent">Services</a>
-                        <a href="#how-it-works" class="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-accent">How It Works</a>
-                        <a href="#features" class="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-accent">Features</a>
-                        <a href="#pricing" class="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-accent">Pricing</a>
-                        <a href="#contact" class="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-accent">Contact</a>
-                    </nav>
+    <!-- Navbar -->
+<nav class="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50" x-data="{ mobileMenuOpen: false }">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16 items-center">
+      
+      <!-- Logo -->
+      <div class="flex items-center">
+        <div class="flex-shrink-0 flex items-center">
+          <img src="/public/mylogo.png" alt="Daak Khana Logo" class="h-8 w-8 object-contain">
+          <span class="ml-2 text-xl font-bold text-foreground">Daak Khana</span>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:ml-10 md:flex md:space-x-8">
+          <a href="#services" class="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-green-100">Services</a>
+          <a href="#how-it-works" class="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-green-100">How It Works</a>
+          <a href="#features" class="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-green-100">Features</a>
+          <a href="#pricing" class="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-green-100">Pricing</a>
+          <a href="#contact" class="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors rounded-md hover:bg-green-100">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Desktop Auth Buttons -->
+      <div class="hidden md:flex md:items-center md:space-x-4">
+        <a href="/login" class="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors hover:bg-green-50 rounded-md">Sign In</a>
+        <a href="/register" class="bg-green-600 text-white hover:bg-green-700 px-4 py-2 rounded-md text-sm font-medium transition-colors">
+          Get Started
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button @click="mobileMenuOpen = !mobileMenuOpen" class="p-2 text-muted-foreground hover:text-foreground hover:bg-green-100 rounded-md">
+          <svg x-show="!mobileMenuOpen" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg x-show="mobileMenuOpen" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div x-show="mobileMenuOpen" x-transition class="md:hidden border-t border-border">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="#services" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-green-100 rounded-md">Services</a>
+        <a href="#how-it-works" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-green-100 rounded-md">How It Works</a>
+        <a href="#features" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-green-100 rounded-md">Features</a>
+        <a href="#pricing" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-green-100 rounded-md">Pricing</a>
+        <a href="#contact" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-green-100 rounded-md">Contact</a>
+      </div>
+      <div class="border-t border-border pt-4 pb-3">
+        <div class="flex flex-col space-y-3 px-2">
+          <a href="/login" class="text-center bg-green-50 text-foreground px-4 py-2 rounded-md text-sm font-medium hover:bg-green-100 transition-colors">Sign In</a>
+          <a href="/register" class="text-center bg-green-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-green-700 transition-colors">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="relative overflow-hidden bg-background pt-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      
+      <!-- Left Content -->
+      <div class="text-center lg:text-left">
+        <div class="inline-flex items-center rounded-full border border-border px-3 py-1 text-sm bg-muted/50 mb-6">
+          <span class="w-2 h-2 bg-green-600 rounded-full mr-2 animate-pulse"></span>
+          Pakistan's Leading Courier Platform
+        </div>
+        
+        <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl mb-6">
+          Streamline Your
+          <span class="bg-gradient-to-r from-green-600 to-green-500 bg-clip-text text-transparent">
+            Logistics
+          </span>
+          <span class="block text-muted-foreground text-3xl sm:text-4xl lg:text-5xl font-normal mt-2">Across Pakistan</span>
+        </h1>
+        
+        <p class="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+          Connect with Pakistan's most reliable courier partners. Compare prices, track deliveries in real-time, and manage all your shipments from one powerful platform.
+        </p>
+        
+        <!-- Hero Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
+          <a href="/register?type=customer" class="bg-green-600 text-white hover:bg-green-700 px-8 py-3 rounded-lg text-lg font-semibold transition-colors inline-flex items-center justify-center">
+            Start Shipping Free
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+          <a href="#how-it-works" class="border border-input bg-background hover:bg-green-50 hover:text-foreground px-8 py-3 rounded-lg text-lg font-semibold transition-colors inline-flex items-center justify-center">
+            How It Works
+          </a>
+        </div>
+        
+        <!-- Stats -->
+        <div class="flex flex-col sm:flex-row gap-8 justify-center lg:justify-start">
+          <div class="text-center lg:text-left">
+            <div class="text-3xl font-bold text-foreground">500+</div>
+            <div class="text-sm text-muted-foreground">Verified Couriers</div>
+          </div>
+          <div class="text-center lg:text-left">
+            <div class="text-3xl font-bold text-foreground">50K+</div>
+            <div class="text-sm text-muted-foreground">Successful Deliveries</div>
+          </div>
+          <div class="text-center lg:text-left">
+            <div class="text-3xl font-bold text-foreground">98%</div>
+            <div class="text-sm text-muted-foreground">On-Time Rate</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Content (Dashboard Preview) -->
+      <div class="relative">
+        <div class="bg-card border border-border rounded-lg shadow-lg overflow-hidden">
+          <!-- Dashboard Header -->
+          <div class="bg-muted/50 px-6 py-4 border-b border-border">
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold text-foreground">Dashboard Overview</h3>
+              <div class="w-3 h-3 bg-green-600 rounded-full animate-pulse"></div>
+            </div>
+          </div>
+          
+          <!-- Dashboard Content -->
+          <div class="p-6">
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div class="bg-background border border-border rounded-lg p-4">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <div class="text-2xl font-bold text-foreground">127</div>
+                    <div class="text-sm text-muted-foreground">Active Orders</div>
+                  </div>
+                  <div class="w-8 h-8 bg-green-100 rounded-md flex items-center justify-center">
+                    <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                    </svg>
+                  </div>
                 </div>
-                
-                <!-- Desktop Auth Buttons -->
-                <div class="hidden md:flex md:items-center md:space-x-4">
-                    <a href="/login" class="text-muted-foreground hover:text-foreground px-3 py-2 text-sm font-medium transition-colors">Sign In</a>
-                    <a href="/register" class="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-md text-sm font-medium transition-colors">
-                        Get Started
-                    </a>
+              </div>
+              <div class="bg-background border border-border rounded-lg p-4">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <div class="text-2xl font-bold text-foreground">₨45.2K</div>
+                    <div class="text-sm text-muted-foreground">Revenue</div>
+                  </div>
+                  <div class="w-8 h-8 bg-green-100 rounded-md flex items-center justify-center">
+                    <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                    </svg>
+                  </div>
                 </div>
-                
-                <!-- Mobile menu button -->
-                <div class="md:hidden">
-                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="p-2 text-muted-foreground hover:text-foreground hover:bg-accent rounded-md">
-                        <svg x-show="!mobileMenuOpen" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                        <svg x-show="mobileMenuOpen" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
+              </div>
             </div>
             
-            <!-- Mobile menu -->
-            <div x-show="mobileMenuOpen" x-transition class="md:hidden border-t border-border">
-                <div class="px-2 pt-2 pb-3 space-y-1">
-                    <a href="#services" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md">Services</a>
-                    <a href="#how-it-works" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md">How It Works</a>
-                    <a href="#features" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md">Features</a>
-                    <a href="#pricing" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md">Pricing</a>
-                    <a href="#contact" @click="mobileMenuOpen = false" class="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-accent rounded-md">Contact</a>
+            <!-- Recent Orders -->
+            <div class="bg-background border border-border rounded-lg">
+              <div class="px-4 py-3 border-b border-border">
+                <h4 class="font-medium text-foreground text-sm">Recent Orders</h4>
+              </div>
+              <div class="p-4 space-y-3">
+                <div class="flex items-center space-x-3">
+                  <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-sm text-foreground">Package to Lahore</div>
+                    <div class="text-xs text-muted-foreground">2 min ago</div>
+                  </div>
+                  <div class="text-xs font-medium text-green-600">₨450</div>
                 </div>
-                <div class="border-t border-border pt-4 pb-3">
-                    <div class="flex flex-col space-y-3 px-2">
-                        <a href="/login" class="text-center bg-secondary text-secondary-foreground px-4 py-2 rounded-md text-sm font-medium hover:bg-secondary/80 transition-colors">Sign In</a>
-                        <a href="/register" class="text-center bg-primary text-primary-foreground px-4 py-2 rounded-md text-sm font-medium hover:bg-primary/90 transition-colors">Get Started</a>
-                    </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-sm text-foreground">Booking from Karachi</div>
+                    <div class="text-xs text-muted-foreground">15 min ago</div>
+                  </div>
+                  <div class="text-xs font-medium text-blue-600">₨320</div>
                 </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-sm text-foreground">Transit to Islamabad</div>
+                    <div class="text-xs text-muted-foreground">1 hour ago</div>
+                  </div>
+                  <div class="text-xs font-medium text-yellow-600">₨280</div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-background pt-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <!-- Left Content -->
-                <div class="text-center lg:text-left">
-                    <div class="inline-flex items-center rounded-full border border-border px-3 py-1 text-sm bg-muted/50 mb-6">
-                        <span class="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse"></span>
-                        Pakistan's Leading Courier Platform
-                    </div>
-                    
-                    <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl mb-6">
-                        Streamline Your
-                        <span class="bg-gradient-to-r from-green-600 to-green-500 bg-clip-text text-transparent">
-  Logistics
-</span>
-
-                        <span class="block text-muted-foreground text-3xl sm:text-4xl lg:text-5xl font-normal mt-2">Across Pakistan</span>
-                    </h1>
-                    
-                    <p class="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                        Connect with Pakistan's most reliable courier partners. Compare prices, track deliveries in real-time, and manage all your shipments from one powerful platform.
-                    </p>
-                    
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
-                        <a href="/register?type=customer" class="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 rounded-lg text-lg font-semibold transition-colors inline-flex items-center justify-center">
-                            Start Shipping Free
-                            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
-                        </a>
-                        <a href="#how-it-works" class="border border-input bg-background hover:bg-accent hover:text-accent-foreground px-8 py-3 rounded-lg text-lg font-semibold transition-colors inline-flex items-center justify-center">
-                            How It Works
-                        </a>
-                    </div>
-                    
-                    <!-- Stats -->
-                    <div class="flex flex-col sm:flex-row gap-8 justify-center lg:justify-start">
-                        <div class="text-center lg:text-left">
-                            <div class="text-3xl font-bold text-foreground">500+</div>
-                            <div class="text-sm text-muted-foreground">Verified Couriers</div>
-                        </div>
-                        <div class="text-center lg:text-left">
-                            <div class="text-3xl font-bold text-foreground">50K+</div>
-                            <div class="text-sm text-muted-foreground">Successful Deliveries</div>
-                        </div>
-                        <div class="text-center lg:text-left">
-                            <div class="text-3xl font-bold text-foreground">98%</div>
-                            <div class="text-sm text-muted-foreground">On-Time Rate</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Right Content (Dashboard Preview) -->
-                <div class="relative">
-                    <div class="bg-card border border-border rounded-lg shadow-lg overflow-hidden">
-                        <!-- Dashboard Header -->
-                        <div class="bg-muted/50 px-6 py-4 border-b border-border">
-                            <div class="flex items-center justify-between">
-                                <h3 class="font-semibold text-foreground">Dashboard Overview</h3>
-                                <div class="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
-                            </div>
-                        </div>
-                        
-                        <!-- Dashboard Content -->
-                        <div class="p-6">
-                            <!-- Stats Grid -->
-                            <div class="grid grid-cols-2 gap-4 mb-6">
-                                <div class="bg-background border border-border rounded-lg p-4">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="text-2xl font-bold text-foreground">127</div>
-                                            <div class="text-sm text-muted-foreground">Active Orders</div>
-                                        </div>
-                                        <div class="w-8 h-8 bg-primary/10 rounded-md flex items-center justify-center">
-                                            <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bg-background border border-border rounded-lg p-4">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <div class="text-2xl font-bold text-foreground">₨45.2K</div>
-                                            <div class="text-sm text-muted-foreground">Revenue</div>
-                                        </div>
-                                        <div class="w-8 h-8 bg-primary/10 rounded-md flex items-center justify-center">
-                                            <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Recent Orders -->
-                            <div class="bg-background border border-border rounded-lg">
-                                <div class="px-4 py-3 border-b border-border">
-                                    <h4 class="font-medium text-foreground text-sm">Recent Orders</h4>
-                                </div>
-                                <div class="p-4 space-y-3">
-                                    <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-primary rounded-full"></div>
-                                        <div class="flex-1 min-w-0">
-                                            <div class="text-sm text-foreground">Package to Lahore</div>
-                                            <div class="text-xs text-muted-foreground">2 min ago</div>
-                                        </div>
-                                        <div class="text-xs font-medium text-primary">₨450</div>
-                                    </div>
-                                    <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
-                                        <div class="flex-1 min-w-0">
-                                            <div class="text-sm text-foreground">Booking from Karachi</div>
-                                            <div class="text-xs text-muted-foreground">15 min ago</div>
-                                        </div>
-                                        <div class="text-xs font-medium text-blue-600">₨320</div>
-                                    </div>
-                                    <div class="flex items-center space-x-3">
-                                        <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                                        <div class="flex-1 min-w-0">
-                                            <div class="text-sm text-foreground">Transit to Islamabad</div>
-                                            <div class="text-xs text-muted-foreground">1 hour ago</div>
-                                        </div>
-                                        <div class="text-xs font-medium text-yellow-600">₨280</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Floating indicators -->
-                    <div class="absolute -top-4 -right-4 bg-primary text-primary-foreground rounded-lg px-3 py-2 text-sm font-medium shadow-lg animate-pulse">
-                        Live Updates
-                    </div>
-                    <div class="absolute -bottom-4 -left-4 bg-card border border-border rounded-lg p-3 shadow-lg">
-                        <div class="flex items-center space-x-2">
-                            <div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                            <span class="text-xs font-medium text-foreground">Real-time Tracking</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        
+        <!-- Floating indicators -->
+        <div class="absolute -top-4 -right-4 bg-green-600 text-white rounded-lg px-3 py-2 text-sm font-medium shadow-lg animate-pulse">
+          Live Updates
         </div>
-    </section>
-
-    <!-- Trust Indicators -->
-    <section class="py-16 bg-muted/30">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <p class="text-muted-foreground font-medium">Trusted by Pakistan's leading courier companies</p>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center">
-                <div class="flex justify-center">
-                    <div class="bg-card border border-border text-foreground px-6 py-3 rounded-lg font-bold text-lg shadow-sm hover:shadow-md transition-shadow">TCS</div>
-                </div>
-                <div class="flex justify-center">
-                    <div class="bg-card border border-border text-foreground px-6 py-3 rounded-lg font-bold text-lg shadow-sm hover:shadow-md transition-shadow">Leopards</div>
-                </div>
-                <div class="flex justify-center">
-                    <div class="bg-card border border-border text-foreground px-6 py-3 rounded-lg font-bold text-lg shadow-sm hover:shadow-md transition-shadow">M&P</div>
-                </div>
-                <div class="flex justify-center">
-                    <div class="bg-card border border-border text-foreground px-6 py-3 rounded-lg font-bold text-lg shadow-sm hover:shadow-md transition-shadow">Blue EX</div>
-                </div>
-                <div class="flex justify-center">
-                    <div class="bg-card border border-border text-foreground px-6 py-3 rounded-lg font-bold text-lg shadow-sm hover:shadow-md transition-shadow">Call Courier</div>
-                </div>
-                <div class="flex justify-center">
-                    <div class="bg-card border border-border text-foreground px-6 py-3 rounded-lg font-bold text-lg shadow-sm hover:shadow-md transition-shadow">Trax</div>
-                </div>
-            </div>
+        <div class="absolute -bottom-4 -left-4 bg-card border border-border rounded-lg p-3 shadow-lg">
+          <div class="flex items-center space-x-2">
+            <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+            <span class="text-xs font-medium text-foreground">Real-time Tracking</span>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- Services Section -->
     <section id="services" class="py-24 bg-background">
