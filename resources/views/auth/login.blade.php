@@ -3,7 +3,7 @@
         
         <!-- Header -->
         <div class="text-center">
-            <h1 class="text-3xl font-bold text-gray-900">Welcome back 👋</h1>
+            <h1 class="text-3xl font-bold text-gray-900">Welcome back</h1>
             <p class="mt-2 text-gray-600">Sign in to your account to continue</p>
         </div>
 
