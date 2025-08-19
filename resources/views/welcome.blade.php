@@ -16,7 +16,7 @@
     <meta property="og:type" content="website">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('public/mylogo.png') }}">
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/Ahmadjamil888/Daak-Khana/refs/heads/main/public/mylogo.png">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
