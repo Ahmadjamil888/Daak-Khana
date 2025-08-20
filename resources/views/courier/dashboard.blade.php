@@ -132,7 +132,7 @@
                         <div class="mt-4 flex items-center justify-between">
                             <div class="text-sm text-neutral-600">Commission Rate: 1% per booking (deducted as platform fee)</div>
                             @if($commissionSummary['total_unpaid'] > 0)
-                                <a href="{{ route('courier.commissions.pay-all') }}" class="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 text-sm font-medium">
+                                <a href="{{ route('courier.commissions.payment-form', ['commission_ids' => $company->getUnpaidCommissions()->pluck('id')->toArray()]) }}" class="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 text-sm font-medium">
                                     Pay All ({{ $commissionSummary['formatted_total_unpaid'] }})
                                 </a>
                             @endif

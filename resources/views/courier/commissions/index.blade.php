@@ -77,15 +77,17 @@
 
                     @if($commissionSummary['total_unpaid'] > 0)
                         <div class="flex flex-wrap gap-3">
-                            <a href="{{ route('courier.commissions.pay-all') }}" 
-                               class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                                Pay All ({{ $commissionSummary['formatted_total_unpaid'] }})
-                            </a>
                             @if($commissionsEnabled)
+                                <a href="{{ route('courier.commissions.payment-form', ['commission_ids' => $company->getUnpaidCommissions()->pluck('id')->toArray()]) }}" 
+                                   class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                    Pay All ({{ $commissionSummary['formatted_total_unpaid'] }})
+                                </a>
                                 <a href="{{ route('courier.commissions.payment-form', ['commission_ids' => $company->getUnpaidCommissions()->pluck('id')->toArray()]) }}" 
                                    class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors">
                                     Select Commissions to Pay
                                 </a>
+                            @else
+                                <span class="bg-gray-300 text-gray-700 px-6 py-2 rounded-lg cursor-not-allowed">Pay All</span>
                             @endif
                         </div>
                     @else

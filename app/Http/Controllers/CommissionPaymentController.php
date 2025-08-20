@@ -239,26 +239,36 @@ class CommissionPaymentController extends Controller
      */
     public function payAll()
     {
-        $user = Auth::user();
-        $company = $user->courierCompany;
-        
-        if (!Schema::hasTable('courier_company_commissions')) {
-            return redirect()->route('courier.commissions.index')
-                           ->with('error', 'Commission system is not initialized yet. Please contact support.');
-        }
-        
-        $unpaidCommissions = $company->getUnpaidCommissions();
-        
-        if ($unpaidCommissions->isEmpty()) {
-            return redirect()->route('courier.commissions.index')
-                           ->with('info', 'No outstanding commissions to pay.');
-        }
+        try {
+            $user = Auth::user();
+            $company = $user->courierCompany;
+            
+            if (!Schema::hasTable('courier_company_commissions')) {
+                return redirect()->route('courier.commissions.index')
+                               ->with('error', 'Commission system is not initialized yet. Please contact support.');
+            }
+            
+            $unpaidCommissions = $company->getUnpaidCommissions();
+            
+            if ($unpaidCommissions->isEmpty()) {
+                return redirect()->route('courier.commissions.index')
+                               ->with('info', 'No outstanding commissions to pay.');
+            }
 
-        $commissionIds = $unpaidCommissions->pluck('id')->toArray();
-        
-        return $this->paymentForm(new Request([
-            'commission_ids' => $commissionIds
-        ]));
+            $commissionIds = $unpaidCommissions->pluck('id')->toArray();
+            
+            // Redirect to payment form with commission_ids as query parameters (GET)
+            return redirect()->route('courier.commissions.payment-form', [
+                'commission_ids' => $commissionIds
+            ]);
+        } catch (\Throwable $e) {
+            \Log::error('Pay All failed', [
+                'user_id' => Auth::id(),
+                'error' => $e->getMessage(),
+            ]);
+            return redirect()->route('courier.commissions.index')
+                           ->with('error', 'Failed to load payment interface. Please try again.');
+        }
     }
 
     /**
