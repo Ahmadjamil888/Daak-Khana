@@ -10,6 +10,12 @@
         </div>
 
         <!-- Account Status Alert -->
+        @if(!$commissionsEnabled)
+            <div class="bg-blue-100 border border-blue-400 text-blue-800 px-4 py-3 rounded mb-6">
+                Commission tracking is initializing. Please try again after migrations complete.
+            </div>
+        @endif
+
         @if($commissionSummary['is_restricted'])
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
                 <div class="flex items-center">
@@ -75,10 +81,12 @@
                                class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
                                 Pay All ({{ $commissionSummary['formatted_total_unpaid'] }})
                             </a>
-                            <a href="{{ route('courier.commissions.payment-form', ['commission_ids' => $company->getUnpaidCommissions()->pluck('id')->toArray()]) }}" 
-                               class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors">
-                                Select Commissions to Pay
-                            </a>
+                            @if($commissionsEnabled)
+                                <a href="{{ route('courier.commissions.payment-form', ['commission_ids' => $company->getUnpaidCommissions()->pluck('id')->toArray()]) }}" 
+                                   class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                                    Select Commissions to Pay
+                                </a>
+                            @endif
                         </div>
                     @else
                         <div class="text-green-600 font-medium">✓ All commissions are paid up!</div>
@@ -166,7 +174,7 @@
                     <div class="space-y-3 text-sm">
                         <div class="p-3 bg-blue-50 rounded">
                             <h4 class="font-medium text-blue-900">Commission Rate</h4>
-                            <p class="text-blue-700">We charge 5% commission on each booking to cover platform costs and payment processing.</p>
+                            <p class="text-blue-700">We charge 1% commission on each booking to cover platform costs and payment processing.</p>
                         </div>
                         <div class="p-3 bg-green-50 rounded">
                             <h4 class="font-medium text-green-900">Payment Terms</h4>

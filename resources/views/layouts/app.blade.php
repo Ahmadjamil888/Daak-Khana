@@ -211,6 +211,11 @@
                     </div>
                 </div>
             </div>
+        <div class="bg-green-600">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 text-center">
+                    <span class="text-white font-extrabold tracking-wide">We charge only 1% of your earnings</span>
+                </div>
+            </div>
         </header>
 
         <!-- Page Content -->

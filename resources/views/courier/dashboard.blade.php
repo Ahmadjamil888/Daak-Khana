@@ -130,7 +130,7 @@
                             </div>
                         </div>
                         <div class="mt-4 flex items-center justify-between">
-                            <div class="text-sm text-neutral-600">Commission Rate: 5% per booking (deducted as platform fee)</div>
+                            <div class="text-sm text-neutral-600">Commission Rate: 1% per booking (deducted as platform fee)</div>
                             @if($commissionSummary['total_unpaid'] > 0)
                                 <a href="{{ route('courier.commissions.pay-all') }}" class="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 text-sm font-medium">
                                     Pay All ({{ $commissionSummary['formatted_total_unpaid'] }})
@@ -272,7 +272,7 @@
                                         <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Customer</th>
                                         <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Status</th>
                                         <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Amount</th>
-                                        <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Commission (5%)</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Commission (1%)</th>
                                         <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Date</th>
                                     </tr>
                                 </thead>
@@ -299,7 +299,7 @@
                                                 {{ $booking->formatted_total_amount }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">
-                                                {{ $booking->courierCompany->currency_symbol }} {{ number_format($booking->total_amount * 0.05, 0) }}
+                                                {{ $booking->courierCompany->currency_symbol }} {{ number_format($booking->total_amount * 0.01, 0) }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">
                                                 {{ $booking->created_at->format('M d, Y') }}

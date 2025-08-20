@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Schema;
 
 class BookingController extends Controller
 {
@@ -86,6 +87,19 @@ class BookingController extends Controller
 
         $service = CourierService::findOrFail($request->courier_service_id);
         $company = CourierCompany::findOrFail($request->courier_company_id);
+
+        // Prevent new bookings if the courier is restricted due to unpaid commissions (>10 days)
+        if (Schema::hasTable('courier_company_commissions') && Schema::hasColumn('courier_companies', 'is_commission_restricted')) {
+            if ($company->is_commission_restricted || $company->shouldBeRestricted()) {
+                // Apply restriction if overdue
+                if (!$company->is_commission_restricted && $company->shouldBeRestricted()) {
+                    $company->applyCommissionRestriction();
+                }
+                return back()->withErrors([
+                    'courier_company_id' => 'Selected courier is temporarily unavailable due to unpaid commissions. Please choose another courier.'
+                ])->withInput();
+            }
+        }
 
         // Calculate total amount (basic calculation)
         $basePrice = $service->price;

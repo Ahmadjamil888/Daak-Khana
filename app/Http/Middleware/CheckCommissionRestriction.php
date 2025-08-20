@@ -30,6 +30,12 @@ class CheckCommissionRestriction
             return $next($request);
         }
 
+        // If commission tracking columns don't exist (migrations pending), skip enforcement to avoid 500s
+        if (!\Illuminate\Support\Facades\Schema::hasColumn('courier_companies', 'is_commission_restricted') ||
+            !\Illuminate\Support\Facades\Schema::hasTable('courier_company_commissions')) {
+            return $next($request);
+        }
+
         // Check if company is restricted due to unpaid commissions
         if ($company->is_commission_restricted) {
             // For AJAX requests, return JSON response

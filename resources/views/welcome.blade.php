@@ -190,6 +190,11 @@
     <!-- Navigation -->
     <!-- Navbar -->
 <nav class="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50" x-data="{ mobileMenuOpen: false }">
+  <div class="bg-green-600">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 text-center">
+      <span class="text-white font-extrabold tracking-wide">We charge only 1% of your earnings</span>
+    </div>
+  </div>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16 items-center">
       

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Log;
 use Stripe\PaymentIntent;
 use Stripe\Stripe;
 use Exception;
+use Illuminate\Support\Facades\Schema;
 
 class CommissionPaymentController extends Controller
 {
@@ -43,10 +44,26 @@ class CommissionPaymentController extends Controller
                            ->with('error', 'Please create your courier company profile first.');
         }
 
-        $commissionSummary = $this->commissionService->getCommissionSummary($company);
-        $commissionHistory = $this->commissionService->getCommissionHistory($company, 20);
+        $commissionsEnabled = Schema::hasTable('courier_company_commissions');
+        if (!$commissionsEnabled) {
+            $commissionSummary = [
+                'total_unpaid' => 0,
+                'formatted_total_unpaid' => $company->currency_symbol . ' ' . number_format(0, 0),
+                'unpaid_count' => 0,
+                'overdue_count' => 0,
+                'days_until_restriction' => null,
+                'is_restricted' => false,
+                'restriction_message' => null,
+                'can_receive_bookings' => true,
+                'next_due_date' => null,
+            ];
+            $commissionHistory = collect();
+        } else {
+            $commissionSummary = $this->commissionService->getCommissionSummary($company);
+            $commissionHistory = $this->commissionService->getCommissionHistory($company, 20);
+        }
         
-        return view('courier.commissions.index', compact('commissionSummary', 'commissionHistory', 'company'));
+        return view('courier.commissions.index', compact('commissionSummary', 'commissionHistory', 'company', 'commissionsEnabled'));
     }
 
     /**
@@ -185,6 +202,11 @@ class CommissionPaymentController extends Controller
         $user = Auth::user();
         $company = $user->courierCompany;
         
+        if (!Schema::hasTable('courier_company_commissions')) {
+            return redirect()->route('courier.commissions.index')
+                           ->with('error', 'Commission system is not initialized yet. Please contact support.');
+        }
+        
         $request->validate([
             'commission_ids' => 'required|array',
             'commission_ids.*' => 'exists:courier_company_commissions,id'
@@ -202,7 +224,7 @@ class CommissionPaymentController extends Controller
         }
 
         $totalAmount = $commissions->sum('commission_amount');
-        $stripePublicKey = config('services.stripe.key');
+        $stripePublicKey = config('services.stripe.publishable');
         
         return view('courier.commissions.payment-form', compact(
             'commissions', 
@@ -219,6 +241,11 @@ class CommissionPaymentController extends Controller
     {
         $user = Auth::user();
         $company = $user->courierCompany;
+        
+        if (!Schema::hasTable('courier_company_commissions')) {
+            return redirect()->route('courier.commissions.index')
+                           ->with('error', 'Commission system is not initialized yet. Please contact support.');
+        }
         
         $unpaidCommissions = $company->getUnpaidCommissions();
         

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Log;
 
 class CommissionService
 {
-    const COMMISSION_RATE = 0.05; // 5%
+    const COMMISSION_RATE = 0.01; // 1%
     const PAYMENT_DUE_DAYS = 10;
 
     /**
