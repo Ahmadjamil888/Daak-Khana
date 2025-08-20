@@ -28,6 +28,7 @@
                     <a href="{{ route('courier.dashboard') }}" class="text-sm/6 font-semibold text-white">Dashboard</a>
                     <a href="{{ route('courier.company.profile') }}" class="text-sm/6 font-semibold text-white">Company Profile</a>
                     <a href="{{ route('courier.bookings') }}" class="text-sm/6 font-semibold text-white">Bookings</a>
+                    <a href="{{ route('courier.commissions.index') }}" class="text-sm/6 font-semibold text-white">Commissions</a>
                     @if(auth()->user()->isProActive())
                         <a href="{{ route('ai.chat.show') }}" class="text-sm/6 font-semibold text-white">AI Tools</a>
                     @else
@@ -95,6 +96,7 @@
                                 <a href="{{ route('courier.dashboard') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">Dashboard</a>
                                 <a href="{{ route('courier.company.profile') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">Company Profile</a>
                                 <a href="{{ route('courier.bookings') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">Bookings</a>
+                                <a href="{{ route('courier.commissions.index') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">Commissions</a>
                                 @if(auth()->user()->isProActive())
                                     <a href="{{ route('ai.chat.show') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-gray-800">AI Tools</a>
                                 @else

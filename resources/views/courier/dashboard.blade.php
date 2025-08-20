@@ -41,6 +41,104 @@
                     </div>
                 </div>
             @else
+                <!-- Commission and Debt Section -->
+                @if($commissionSummary)
+                    @if($commissionSummary['is_restricted'])
+                        <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <svg class="h-5 w-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <h3 class="text-sm font-medium text-red-800">Account Restricted</h3>
+                                    <div class="mt-2 text-sm text-red-700">
+                                        <p>{{ $commissionSummary['restriction_message'] }}</p>
+                                    </div>
+                                    <div class="mt-3">
+                                        <a href="{{ route('courier.commissions.index') }}" class="inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 text-sm font-medium">Pay Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @elseif($commissionSummary['overdue_count'] > 0)
+                        <div class="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-6">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <svg class="h-5 w-5 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <h3 class="text-sm font-medium text-orange-800">Overdue Commissions</h3>
+                                    <div class="mt-2 text-sm text-orange-700">
+                                        <p>You have {{ $commissionSummary['overdue_count'] }} overdue commission payments. Please pay soon to avoid account restrictions.</p>
+                                    </div>
+                                    <div class="mt-3">
+                                        <a href="{{ route('courier.commissions.index') }}" class="inline-flex items-center px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 text-sm font-medium">Review and Pay</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @elseif($commissionSummary['days_until_restriction'] !== null && $commissionSummary['days_until_restriction'] <= 3)
+                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <svg class="h-5 w-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <h3 class="text-sm font-medium text-yellow-800">Payment Due Soon</h3>
+                                    <div class="mt-2 text-sm text-yellow-700">
+                                        <p>Your commission payment is due in {{ $commissionSummary['days_until_restriction'] }} day(s).</p>
+                                    </div>
+                                    <div class="mt-3">
+                                        <a href="{{ route('courier.commissions.index') }}" class="inline-flex items-center px-4 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 text-sm font-medium">Pay Commission</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-neutral-200 mb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-semibold text-neutral-900">Debt & Commission Summary</h3>
+                            <a href="{{ route('courier.commissions.index') }}" class="text-primary-600 hover:text-primary-700 text-sm font-medium">Manage Commissions →</a>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                            <div>
+                                <div class="text-sm text-neutral-600">Total Outstanding</div>
+                                <div class="text-2xl font-bold text-red-600">{{ $commissionSummary['formatted_total_unpaid'] }}</div>
+                            </div>
+                            <div>
+                                <div class="text-sm text-neutral-600">Unpaid</div>
+                                <div class="text-2xl font-bold text-blue-600">{{ $commissionSummary['unpaid_count'] }}</div>
+                            </div>
+                            <div>
+                                <div class="text-sm text-neutral-600">Overdue</div>
+                                <div class="text-2xl font-bold text-orange-600">{{ $commissionSummary['overdue_count'] }}</div>
+                            </div>
+                            <div>
+                                <div class="text-sm text-neutral-600">Next Due Date</div>
+                                @if($commissionSummary['next_due_date'])
+                                    <div class="text-2xl font-bold text-neutral-900">{{ $commissionSummary['next_due_date']->format('M j, Y') }}</div>
+                                @else
+                                    <div class="text-2xl font-bold text-neutral-900">—</div>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center justify-between">
+                            <div class="text-sm text-neutral-600">Commission Rate: 5% per booking (deducted as platform fee)</div>
+                            @if($commissionSummary['total_unpaid'] > 0)
+                                <a href="{{ route('courier.commissions.pay-all') }}" class="inline-flex items-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 text-sm font-medium">
+                                    Pay All ({{ $commissionSummary['formatted_total_unpaid'] }})
+                                </a>
+                            @endif
+                        </div>
+                    </div>
+                @endif
                 <!-- Stats Cards -->
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                     <div class="bg-white p-6 rounded-lg shadow-sm border border-neutral-200">
@@ -101,7 +199,7 @@
                 </div>
 
                 <!-- Quick Actions -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                     <a href="{{ route('courier.company.profile') }}" class="bg-white p-6 rounded-lg shadow-sm border border-neutral-200 hover:shadow-md transition-shadow">
                         <div class="flex items-center">
                             <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
@@ -143,6 +241,20 @@
                             </div>
                         </div>
                     </a>
+
+                    <a href="{{ route('courier.commissions.index') }}" class="bg-white p-6 rounded-lg shadow-sm border border-neutral-200 hover:shadow-md transition-shadow">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold text-neutral-900">Commission Payments</h4>
+                                <p class="text-sm text-neutral-600">View debt and pay commissions</p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             @endif
 
@@ -160,6 +272,7 @@
                                         <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Customer</th>
                                         <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Status</th>
                                         <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Amount</th>
+                                        <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Commission (5%)</th>
                                         <th class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">Date</th>
                                     </tr>
                                 </thead>
@@ -184,6 +297,9 @@
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">
                                                 {{ $booking->formatted_total_amount }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">
+                                                {{ $booking->courierCompany->currency_symbol }} {{ number_format($booking->total_amount * 0.05, 0) }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500">
                                                 {{ $booking->created_at->format('M d, Y') }}
