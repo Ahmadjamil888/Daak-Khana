@@ -220,7 +220,11 @@
 
         <!-- Page Content -->
         <main class="flex-1">
-            {{ $slot }}
+            @hasSection('content')
+                @yield('content')
+            @elseif(isset($slot))
+                {{ $slot }}
+            @endif
         </main>
 
         <!-- Footer -->
