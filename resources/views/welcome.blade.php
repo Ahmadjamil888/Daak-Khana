@@ -190,12 +190,7 @@
     <!-- Navigation -->
     <!-- Navbar -->
 <nav class="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50" x-data="{ mobileMenuOpen: false }">
-  <div class="bg-green-600">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 text-center">
-      <span class="text-white font-extrabold tracking-wide">We charge only 1% of your earnings</span>
-    </div>
-  </div>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16 items-center">
       
       <!-- Logo -->
@@ -471,6 +466,85 @@
             </div>
         </div>
     </section>    
+<!-- 1% Platform Fee Section -->
+<section id="platform-fee" class="py-24 bg-background">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-20">
+      <div class="inline-flex items-center px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-6 border border-primary/20">
+        Platform Fee
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-bold text-foreground mb-6">Only 1% Deduction — Transparent Breakdown</h2>
+      <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+        We charge a flat 1% platform fee on courier earnings to keep Daak Khana secure, reliable, and fast. Here's where it goes.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="group bg-card border border-border rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <div class="w-16 h-16 bg-blue-500 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-card-foreground mb-2 text-center">Payment Processing</h3>
+        <p class="text-center text-sm text-muted-foreground mb-2">0.4% of earnings</p>
+        <p class="text-muted-foreground text-center leading-relaxed">Covers gateway charges and payout rails for fast and secure withdrawals.</p>
+      </div>
+
+      <div class="group bg-card border border-border rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <div class="w-16 h-16 bg-green-500 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-card-foreground mb-2 text-center">Infrastructure</h3>
+        <p class="text-center text-sm text-muted-foreground mb-2">0.3% of earnings</p>
+        <p class="text-muted-foreground text-center leading-relaxed">Servers, uptime, scaling, maps, and real-time tracking systems.</p>
+      </div>
+
+      <div class="group bg-card border border-border rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <div class="w-16 h-16 bg-purple-500 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h6m5 8H6a2 2 0 01-2-2V6a2 2 0 012-2h8l6 6v8a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-card-foreground mb-2 text-center">Support & Verification</h3>
+        <p class="text-center text-sm text-muted-foreground mb-2">0.2% of earnings</p>
+        <p class="text-muted-foreground text-center leading-relaxed">Human support, dispute resolution, and courier verification checks.</p>
+      </div>
+
+      <div class="group bg-card border border-border rounded-lg p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <div class="w-16 h-16 bg-yellow-500 rounded-lg flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 1.105-.895 2-2 2s-2-.895-2-2 2-6 2-6 2 4.895 2 6zm-7 9h14a2 2 0 002-2v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-card-foreground mb-2 text-center">Security & Insurance</h3>
+        <p class="text-center text-sm text-muted-foreground mb-2">0.1% of earnings</p>
+        <p class="text-muted-foreground text-center leading-relaxed">Fraud prevention, data security, and protection buffers.</p>
+      </div>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-card border border-border rounded-2xl p-8">
+        <h3 class="text-2xl font-bold text-foreground mb-3">Example Calculation</h3>
+        <p class="text-muted-foreground leading-relaxed">
+          If you earn <span class="font-semibold text-foreground">Rs. 1,000</span>, platform fee is <span class="font-semibold text-foreground">Rs. 10</span> (1%).
+          You receive <span class="font-semibold text-foreground">Rs. 990</span>.
+        </p>
+      </div>
+      <div class="bg-card border border-border rounded-2xl p-8">
+        <h3 class="text-2xl font-bold text-foreground mb-3">Highlights</h3>
+        <ul class="space-y-2 text-muted-foreground">
+          <li class="flex items-center"><span class="text-green-600 mr-2">✔</span>No hidden charges</li>
+          <li class="flex items-center"><span class="text-green-600 mr-2">✔</span>Applied only on completed orders</li>
+          <li class="flex items-center"><span class="text-green-600 mr-2">✔</span>Same 1% for all couriers</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- How It Works Section -->
     <section id="how-it-works" class="py-24 bg-muted/30">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
