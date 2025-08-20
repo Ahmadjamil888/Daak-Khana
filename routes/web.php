@@ -48,11 +48,13 @@ Route::middleware(['auth', 'verified'])->prefix('courier')->name('courier.')->gr
     // Commission Management (requires courier company)
     Route::middleware(['courier.company'])->group(function () {
         Route::get('/commissions', [\App\Http\Controllers\CommissionPaymentController::class, 'index'])->name('commissions.index');
-        Route::get('/commissions/{commission}', [\App\Http\Controllers\CommissionPaymentController::class, 'show'])->name('commissions.show');
         Route::post('/commissions/payment-intent', [\App\Http\Controllers\CommissionPaymentController::class, 'createPaymentIntent'])->name('commissions.payment-intent');
         Route::post('/commissions/confirm-payment', [\App\Http\Controllers\CommissionPaymentController::class, 'confirmPayment'])->name('commissions.confirm-payment');
         Route::get('/commissions/payment-form', [\App\Http\Controllers\CommissionPaymentController::class, 'paymentForm'])->name('commissions.payment-form');
         Route::get('/commissions/pay-all', [\App\Http\Controllers\CommissionPaymentController::class, 'payAll'])->name('commissions.pay-all');
+        Route::get('/commissions/{commission}', [\App\Http\Controllers\CommissionPaymentController::class, 'show'])
+            ->whereNumber('commission')
+            ->name('commissions.show');
     });
     
     // Services management (requires courier company and commission check)

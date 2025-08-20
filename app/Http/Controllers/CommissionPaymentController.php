@@ -89,11 +89,11 @@ class CommissionPaymentController extends Controller
                 $totalAmount,
                 $currency,
                 [
-                    'company_id' => $company->id,
+                    'company_id' => (string) $company->id,
                     'company_name' => $company->company_name,
-                    'commission_ids' => $request->commission_ids,
-                    'commission_count' => $commissions->count(),
-                    'user_id' => $user->id,
+                    'commission_ids' => json_encode($request->commission_ids),
+                    'commission_count' => (string) $commissions->count(),
+                    'user_id' => (string) $user->id,
                 ]
             );
 
