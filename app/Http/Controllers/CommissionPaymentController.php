@@ -44,7 +44,9 @@ class CommissionPaymentController extends Controller
                            ->with('error', 'Please create your courier company profile first.');
         }
 
-        $commissionsEnabled = Schema::hasTable('courier_company_commissions');
+        $commissionsEnabled = Schema::hasTable('courier_company_commissions')
+            && Schema::hasColumn('courier_companies', 'is_commission_restricted')
+            && Schema::hasColumn('courier_companies', 'total_commission_due');
         if (!$commissionsEnabled) {
             $commissionSummary = [
                 'total_unpaid' => 0,
@@ -207,9 +209,23 @@ class CommissionPaymentController extends Controller
                            ->with('error', 'Commission system is not initialized yet. Please contact support.');
         }
         
+        // Normalize commission_ids to array if passed as CSV/string
+        $ids = $request->input('commission_ids');
+        if (!is_array($ids)) {
+            // Try JSON decode first
+            $decoded = json_decode($ids, true);
+            if (is_array($decoded)) {
+                $ids = $decoded;
+            } else {
+                // Fallback CSV split
+                $ids = array_filter(array_map('trim', explode(',', (string) $ids)));
+            }
+            $request->merge(['commission_ids' => $ids]);
+        }
+        
         $request->validate([
             'commission_ids' => 'required|array',
-            'commission_ids.*' => 'exists:courier_company_commissions,id'
+            'commission_ids.*' => 'integer|exists:courier_company_commissions,id'
         ]);
 
         $commissions = $company->commissions()
