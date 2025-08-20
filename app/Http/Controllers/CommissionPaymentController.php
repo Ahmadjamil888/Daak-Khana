@@ -201,53 +201,66 @@ class CommissionPaymentController extends Controller
      */
     public function paymentForm(Request $request)
     {
-        $user = Auth::user();
-        $company = $user->courierCompany;
-        
-        if (!Schema::hasTable('courier_company_commissions')) {
-            return redirect()->route('courier.commissions.index')
-                           ->with('error', 'Commission system is not initialized yet. Please contact support.');
-        }
-        
-        // Normalize commission_ids to array if passed as CSV/string
-        $ids = $request->input('commission_ids');
-        if (!is_array($ids)) {
-            // Try JSON decode first
-            $decoded = json_decode($ids, true);
-            if (is_array($decoded)) {
-                $ids = $decoded;
-            } else {
-                // Fallback CSV split
-                $ids = array_filter(array_map('trim', explode(',', (string) $ids)));
+        try {
+            $user = Auth::user();
+            $company = $user->courierCompany;
+            
+            if (!Schema::hasTable('courier_company_commissions')) {
+                return redirect()->route('courier.commissions.index')
+                               ->with('error', 'Commission system is not initialized yet. Please contact support.');
             }
-            $request->merge(['commission_ids' => $ids]);
-        }
-        
-        $request->validate([
-            'commission_ids' => 'required|array',
-            'commission_ids.*' => 'integer|exists:courier_company_commissions,id'
-        ]);
+            
+            // Normalize commission_ids to array if passed as CSV/string
+            $ids = $request->input('commission_ids');
+            if (!is_array($ids)) {
+                $decoded = json_decode($ids, true);
+                if (is_array($decoded)) {
+                    $ids = $decoded;
+                } else {
+                    $ids = array_filter(array_map('trim', explode(',', (string) $ids)));
+                }
+            }
+            
+            // Fallback to all unpaid if nothing provided
+            if (empty($ids)) {
+                $ids = $company->getUnpaidCommissions()->pluck('id')->toArray();
+            }
+            
+            // Sanitize IDs to integers
+            $ids = array_values(array_unique(array_map(fn($v) => (int)$v, (array)$ids)));
+            if (empty($ids)) {
+                return redirect()->route('courier.commissions.index')
+                               ->with('info', 'No outstanding commissions to pay.');
+            }
+            
+            $commissions = $company->commissions()
+                                 ->whereIn('id', $ids)
+                                 ->unpaid()
+                                 ->with('booking')
+                                 ->get();
+            
+            if ($commissions->isEmpty()) {
+                return redirect()->route('courier.commissions.index')
+                               ->with('error', 'No valid unpaid commissions found.');
+            }
 
-        $commissions = $company->commissions()
-                             ->whereIn('id', $request->commission_ids)
-                             ->unpaid()
-                             ->with('booking')
-                             ->get();
-        
-        if ($commissions->isEmpty()) {
+            $totalAmount = $commissions->sum('commission_amount');
+            $stripePublicKey = config('services.stripe.publishable');
+            
+            return view('courier.commissions.payment-form', compact(
+                'commissions', 
+                'totalAmount', 
+                'company', 
+                'stripePublicKey'
+            ));
+        } catch (\Throwable $e) {
+            \Log::error('Failed to load commission payment form', [
+                'user_id' => Auth::id(),
+                'error' => $e->getMessage(),
+            ]);
             return redirect()->route('courier.commissions.index')
-                           ->with('error', 'No valid unpaid commissions found.');
+                           ->with('error', 'Failed to load payment interface. Please try again.');
         }
-
-        $totalAmount = $commissions->sum('commission_amount');
-        $stripePublicKey = config('services.stripe.publishable');
-        
-        return view('courier.commissions.payment-form', compact(
-            'commissions', 
-            'totalAmount', 
-            'company', 
-            'stripePublicKey'
-        ));
     }
 
     /**

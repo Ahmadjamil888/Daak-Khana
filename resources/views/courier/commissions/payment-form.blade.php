@@ -39,6 +39,7 @@
 
             <form id="commission-payment-form">
                 @csrf
+                @csrf
                 <div class="mb-4">
                     <label for="card-element" class="block text-sm font-medium text-gray-700 mb-2">Card Details</label>
                     <div id="card-element" class="border rounded-md p-3"></div>
@@ -76,6 +77,7 @@
     }
 
     const commissionIds = @json($commissions->pluck('id'));
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
     document.getElementById('commission-payment-form').addEventListener('submit', async function (event) {
         event.preventDefault();
@@ -87,7 +89,7 @@
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                    'X-CSRF-TOKEN': csrfToken,
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({ commission_ids: commissionIds })
@@ -115,7 +117,7 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                        'X-CSRF-TOKEN': csrfToken,
                         'Accept': 'application/json'
                     },
                     body: JSON.stringify({
