@@ -47,6 +47,10 @@
         }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    
+    <!-- AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6482011762315089" crossorigin="anonymous"></script>
+    
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     <style>
